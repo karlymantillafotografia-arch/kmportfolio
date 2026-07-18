@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { FeaturedPortfolio } from "@/components/sections/FeaturedPortfolio";
 import { BeforeAfter } from "@/components/sections/BeforeAfter";
 import { Services } from "@/components/sections/Services";
+import { Reviews } from "@/components/sections/Reviews";
 import { VideosAndConsulting } from "@/components/sections/VideosAndConsulting";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
@@ -13,6 +14,7 @@ export default function HomePage() {
       <FeaturedPortfolio />
       <BeforeAfter carousel mobileLimit={4} />
       <Services compact />
+      <Reviews />
       <VideosAndConsulting />
       <CtaBanner />
     </PageShell>

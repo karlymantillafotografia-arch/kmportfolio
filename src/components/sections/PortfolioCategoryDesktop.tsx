@@ -81,19 +81,21 @@ export function PortfolioCategoryDesktop({
   }, [allProjects]);
 
   return (
-    <div className="hidden md:block">
+    // Columna a pantalla completa: intro arriba, contenido centrado y CTA abajo
+    <div className="hidden md:flex md:min-h-[calc(100vh-10rem)] md:flex-col">
       {/* Intro */}
-      <section className="mx-auto max-w-3xl px-8 pt-5 pb-5 text-center">
-        <h1 className="font-serif text-3xl text-ink lg:text-[2.25rem]">
+      <section className="mx-auto max-w-3xl px-8 pt-8 pb-2 text-center md:pt-10">
+        <h1 className="font-serif text-2xl text-ink md:text-3xl">
           {item.pageTitle}
         </h1>
-        <p className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed text-ink-muted">
+        <p className="mx-auto mt-2 max-w-xl text-[13px] leading-relaxed text-ink-muted">
           {item.description}
         </p>
       </section>
 
-      {/* Featured project */}
-      <section className="mx-auto max-w-6xl px-8 pb-7">
+      <div className="md:my-auto">
+        {/* Featured project */}
+        <section className="mx-auto max-w-6xl px-8 pb-7">
         <div className="grid overflow-hidden rounded-xl bg-bg-warm md:grid-cols-2">
           <div className="relative min-h-[350px] lg:min-h-[390px]">
             <ImageLightbox
@@ -140,25 +142,21 @@ export function PortfolioCategoryDesktop({
                 </dd>
               </div>
             </dl>
-            <div className="mt-5">
-              <Button href="/contact" variant="secondary" showArrow>
-                View Project Details
-              </Button>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Project carousel */}
-      <section className="mx-auto max-w-6xl px-8 pb-7">
-        <ProjectCarousel
-          projects={carouselProjects}
-          onSelect={(project) => setSelectedId(project.id)}
-        />
-      </section>
+        {/* Project carousel */}
+        <section className="mx-auto max-w-6xl px-8">
+          <ProjectCarousel
+            projects={carouselProjects}
+            onSelect={(project) => setSelectedId(project.id)}
+          />
+        </section>
+      </div>
 
       {/* Category CTA */}
-      <section className="px-8 pb-7">
+      <section className="px-8 pb-6">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 rounded-xl bg-bg-warm px-6 py-4">
           <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-surface text-ink">
             <Sparkles className="size-4" strokeWidth={1.5} />

@@ -14,7 +14,7 @@ type ProjectCarouselProps = {
 
 export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
+    align: "center",
     loop: true,
     slidesToScroll: 1,
   });
@@ -63,12 +63,12 @@ export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
         <ChevronRight className="size-5" />
       </button>
 
-      <div className="overflow-hidden px-12" ref={emblaRef}>
+      <div className="overflow-hidden" ref={emblaRef}>
         <div className="-ml-4 flex">
           {projects.map((project) => (
             <article
               key={project.id}
-              className="min-w-0 flex-[0_0_calc(100%/6)] pl-4"
+              className="min-w-0 flex-[0_0_15.5%] pl-4"
             >
               <button
                 type="button"

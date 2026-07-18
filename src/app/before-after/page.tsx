@@ -13,12 +13,17 @@ export const metadata: Metadata = {
 export default function BeforeAfterPage() {
   return (
     <PageShell>
-      <PageIntro
-        title="Before & After"
-        description="Drag the slider to compare original captures with finished retouching."
-      />
-      <BeforeAfter />
-      <CtaBanner />
+      {/* Columna a pantalla completa: intro arriba, carrusel centrado y CTA abajo */}
+      <div className="md:flex md:min-h-[calc(100vh-10rem)] md:flex-col">
+        <PageIntro
+          title="Before & After"
+          description="Drag the slider to compare original captures with finished retouching."
+        />
+        <div className="md:my-auto">
+          <BeforeAfter carousel showHeading={false} showTitles />
+        </div>
+        <CtaBanner />
+      </div>
     </PageShell>
   );
 }

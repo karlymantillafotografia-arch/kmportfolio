@@ -8,19 +8,30 @@ import { PortfolioCarousel } from "@/components/ui/PortfolioCarousel";
 
 type FeaturedPortfolioProps = {
   title?: string;
+  showHeading?: boolean;
 };
 
 export function FeaturedPortfolio({
   title = "Featured Portfolio",
+  showHeading = true,
 }: FeaturedPortfolioProps) {
   return (
-    <section id="portfolio" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-5">
+    <section
+      id="portfolio"
+      className={
+        showHeading
+          ? "scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-5"
+          : "scroll-mt-20 px-5 pt-0 pb-0 md:px-8"
+      }
+    >
       <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          title={title}
-          mobileTitle="Portfolio"
-          className="my-4 md:mb-6 md:mt-0"
-        />
+        {showHeading && (
+          <SectionHeading
+            title={title}
+            mobileTitle="Portfolio"
+            className="my-4 md:mb-6 md:mt-0"
+          />
+        )}
 
         <div className="hidden md:block">
           <CardCarousel>

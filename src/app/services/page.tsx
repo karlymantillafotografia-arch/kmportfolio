@@ -13,12 +13,16 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <PageShell>
-      <PageIntro
-        title="Services"
-        description="End-to-end image finishing for brands, photographers, and growing creative businesses."
-      />
-      <Services />
-      <CtaBanner />
+      <div className="md:flex md:min-h-[calc(100vh-10rem)] md:flex-col">
+        <PageIntro
+          title="Services"
+          description="End-to-end image finishing for brands, photographers, and growing creative businesses."
+        />
+        <div className="md:my-auto">
+          <Services showHeading={false} />
+        </div>
+        <CtaBanner />
+      </div>
     </PageShell>
   );
 }

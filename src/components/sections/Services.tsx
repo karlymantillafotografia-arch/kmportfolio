@@ -7,11 +7,13 @@ import { ServiceCard } from "@/components/ui/ServiceCard";
 type ServicesProps = {
   compact?: boolean;
   title?: string;
+  showHeading?: boolean;
 };
 
 export function Services({
   compact = false,
   title = "Services",
+  showHeading = true,
 }: ServicesProps) {
   const mobileItems = compact
     ? services.filter((service) =>
@@ -24,7 +26,9 @@ export function Services({
   return (
     <section id="services" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-0">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
+        {showHeading ? (
+          <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
+        ) : null}
 
         <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-6">
           {services.map((service) => (

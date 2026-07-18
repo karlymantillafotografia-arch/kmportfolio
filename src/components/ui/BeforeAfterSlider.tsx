@@ -15,6 +15,8 @@ type BeforeAfterSliderProps = {
   item: BeforeAfterItem;
   /** Lista completa para navegar entre comparativas dentro del modal. */
   items?: BeforeAfterItem[];
+  /** Muestra el título de la comparativa debajo de la tarjeta. */
+  showTitle?: boolean;
   className?: string;
 };
 
@@ -71,6 +73,7 @@ function Badges() {
 export function BeforeAfterSlider({
   item,
   items,
+  showTitle = false,
   className,
 }: BeforeAfterSliderProps) {
   const [open, setOpen] = useState(false);
@@ -121,30 +124,47 @@ export function BeforeAfterSlider({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, index, count]);
 
+  const card = (
+    <div
+      className={cn(
+        "relative overflow-hidden bg-surface-muted",
+        showTitle ? "" : "rounded-lg",
+        className,
+      )}
+    >
+      <CompareView item={item} className="aspect-[4/3] w-full md:aspect-[5/4]" />
+      <Badges />
+      <button
+        type="button"
+        aria-label={`Enlarge comparison: ${item.title}`}
+        onClick={() => {
+          const start = list.findIndex((entry) => entry.id === item.id);
+          setIndex(start >= 0 ? start : 0);
+          setShowInfo(false);
+          setOpen(true);
+        }}
+        className="absolute right-2 bottom-2 flex size-7 cursor-pointer items-center justify-center rounded-full bg-surface/85 text-ink shadow-sm backdrop-blur-sm transition hover:bg-surface"
+      >
+        <Maximize2 className="size-3.5" />
+      </button>
+    </div>
+  );
+
   return (
     <>
-      <div
-        className={cn(
-          "relative overflow-hidden rounded-lg bg-surface-muted",
-          className,
-        )}
-      >
-        <CompareView item={item} className="aspect-[4/3] w-full md:aspect-[5/4]" />
-        <Badges />
-        <button
-          type="button"
-          aria-label={`Enlarge comparison: ${item.title}`}
-          onClick={() => {
-            const start = list.findIndex((entry) => entry.id === item.id);
-            setIndex(start >= 0 ? start : 0);
-            setShowInfo(false);
-            setOpen(true);
-          }}
-          className="absolute right-2 bottom-2 flex size-7 cursor-pointer items-center justify-center rounded-full bg-surface/85 text-ink shadow-sm backdrop-blur-sm transition hover:bg-surface"
-        >
-          <Maximize2 className="size-3.5" />
-        </button>
-      </div>
+      {showTitle ? (
+        /* Tarjeta estilo portafolio: imagen arriba y franja pastel con el título */
+        <article className="overflow-hidden rounded-md bg-bg-warm">
+          {card}
+          <div className="px-4 py-3">
+            <h3 className="font-serif text-base leading-snug text-ink">
+              {item.title}
+            </h3>
+          </div>
+        </article>
+      ) : (
+        card
+      )}
 
       {/* The modal is rendered in a portal because embla applies a CSS
           transform to the carousel track, which would trap position: fixed

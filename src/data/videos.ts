@@ -5,17 +5,19 @@ export type VideoItem = {
   duration: string;
   thumbnail: string;
   href: string;
+  /** Si existe, el video se reproduce embebido en la página. */
+  youtubeId?: string;
 };
 
 export const videos: VideoItem[] = [
   {
-    id: "portrait-process",
-    title: "Portrait Retouching Process",
-    description: "A walkthrough of natural skin refinement and finishing.",
-    duration: "04:32",
-    thumbnail:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80",
-    href: "#",
+    id: "skin-retouching",
+    title: "Retoque de Piel Avanzado en Photoshop",
+    description: "Advanced skin retouching walkthrough in under 4 minutes.",
+    duration: "04:39",
+    thumbnail: "https://i.ytimg.com/vi/OMhfnFVuL-M/hqdefault.jpg",
+    href: "https://www.youtube.com/watch?v=OMhfnFVuL-M",
+    youtubeId: "OMhfnFVuL-M",
   },
   {
     id: "product-workflow",

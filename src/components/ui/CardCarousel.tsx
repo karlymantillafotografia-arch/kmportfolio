@@ -7,13 +7,18 @@ import { cn } from "@/lib/cn";
 
 type CardCarouselProps = {
   children: React.ReactNode;
+  /** Clase que controla el ancho de cada tarjeta (por defecto 4 visibles). */
+  slideClassName?: string;
 };
 
-/** Carrusel infinito genérico que muestra 4 tarjetas a la vez. */
-export function CardCarousel({ children }: CardCarouselProps) {
+/** Carrusel infinito genérico que muestra varias tarjetas a la vez. */
+export function CardCarousel({
+  children,
+  slideClassName = "flex-[0_0_23%]",
+}: CardCarouselProps) {
   const slides = Children.toArray(children);
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
+    align: "center",
     loop: true,
     slidesToScroll: 1,
   });
@@ -56,10 +61,10 @@ export function CardCarousel({ children }: CardCarouselProps) {
         <ChevronRight className="size-5" />
       </button>
 
-      <div className="overflow-hidden px-12" ref={emblaRef}>
+      <div className="overflow-hidden" ref={emblaRef}>
         <div className="-ml-4 flex">
           {slides.map((child, index) => (
-            <div key={index} className="min-w-0 flex-[0_0_calc(100%/4)] pl-4">
+            <div key={index} className={cn("min-w-0 pl-4", slideClassName)}>
               {child}
             </div>
           ))}

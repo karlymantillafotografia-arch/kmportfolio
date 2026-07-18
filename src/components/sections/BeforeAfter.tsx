@@ -9,6 +9,8 @@ type BeforeAfterProps = {
   mobileLimit?: number;
   title?: string;
   carousel?: boolean;
+  showHeading?: boolean;
+  showTitles?: boolean;
 };
 
 export function BeforeAfter({
@@ -16,6 +18,8 @@ export function BeforeAfter({
   mobileLimit = 2,
   title = "Before & After",
   carousel = false,
+  showHeading = true,
+  showTitles = false,
 }: BeforeAfterProps) {
   const desktopItems = limit
     ? beforeAfterItems.slice(0, limit)
@@ -28,7 +32,9 @@ export function BeforeAfter({
       className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-0"
     >
       <div className="mx-auto max-w-6xl">
-        <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
+        {showHeading && (
+          <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
+        )}
 
         {carousel ? (
           <div className="hidden sm:block">
@@ -38,6 +44,7 @@ export function BeforeAfter({
                   key={item.id}
                   item={item}
                   items={desktopItems}
+                  showTitle={showTitles}
                 />
               ))}
             </CardCarousel>
@@ -49,6 +56,7 @@ export function BeforeAfter({
                 key={item.id}
                 item={item}
                 items={desktopItems}
+                showTitle={showTitles}
               />
             ))}
           </div>
@@ -57,7 +65,12 @@ export function BeforeAfter({
         <div className="sm:hidden">
           <PeekCarousel>
             {mobileItems.map((item) => (
-              <BeforeAfterSlider key={item.id} item={item} items={mobileItems} />
+              <BeforeAfterSlider
+                key={item.id}
+                item={item}
+                items={mobileItems}
+                showTitle={showTitles}
+              />
             ))}
           </PeekCarousel>
         </div>
