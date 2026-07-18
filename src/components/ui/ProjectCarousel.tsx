@@ -89,7 +89,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         </div>
       </div>
 
-      <div className="mt-5 flex justify-center gap-1.5">
+      <div className="mt-3 flex justify-center gap-1.5">
         {Array.from({ length: snapCount }).map((_, index) => (
           <button
             key={index}
