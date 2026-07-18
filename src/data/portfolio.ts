@@ -4,6 +4,10 @@ export type PortfolioProject = {
   category: string;
   image: string;
   imageAlt: string;
+  description?: string;
+  retouching?: string;
+  deliverables?: string;
+  gallery?: { image: string; imageAlt: string }[];
 };
 
 export type PortfolioItem = {
@@ -18,6 +22,7 @@ export type PortfolioItem = {
     description: string;
     image: string;
     imageAlt: string;
+    gallery: { image: string; imageAlt: string }[];
     category: string;
     retouching: string;
     deliverables: string;
@@ -46,6 +51,28 @@ export const portfolioItems: PortfolioItem[] = [
       image:
         "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1200&q=80",
       imageAlt: "Featured beauty portrait",
+      gallery: [
+        {
+          image:
+            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Featured beauty portrait",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Soft glow detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Studio close-up detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Clean skin finish detail",
+        },
+      ],
       category: "Beauty / Portrait",
       retouching: "Skin texture, dodge & burn, color",
       deliverables: "Web, Print, Social",
@@ -99,6 +126,22 @@ export const portfolioItems: PortfolioItem[] = [
           "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
         imageAlt: "Profile study",
       },
+      {
+        id: "p7",
+        title: "Golden Hour Portrait",
+        category: "Editorial",
+        image:
+          "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Golden hour portrait",
+      },
+      {
+        id: "p8",
+        title: "Minimal Beauty",
+        category: "Beauty",
+        image:
+          "https://images.unsplash.com/photo-1521146764736-56c929d59c83?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Minimal beauty portrait",
+      },
     ],
     cta: {
       title: "Let's refine your next portraits.",
@@ -121,6 +164,28 @@ export const portfolioItems: PortfolioItem[] = [
       image:
         "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&q=80",
       imageAlt: "Featured fashion lookbook",
+      gallery: [
+        {
+          image:
+            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Featured fashion lookbook",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Street style look",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Studio campaign look",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Runway finish look",
+        },
+      ],
       category: "Fashion",
       retouching: "Garment cleanup, color, skin",
       deliverables: "Campaign, Lookbook, Social",
@@ -174,6 +239,22 @@ export const portfolioItems: PortfolioItem[] = [
           "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80",
         imageAlt: "Night look",
       },
+      {
+        id: "f7",
+        title: "Boutique Editorial",
+        category: "Fashion",
+        image:
+          "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Boutique editorial look",
+      },
+      {
+        id: "f8",
+        title: "Wardrobe Story",
+        category: "Editorial",
+        image:
+          "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Wardrobe story set",
+      },
     ],
     cta: {
       title: "Let's elevate your next campaign.",
@@ -196,6 +277,28 @@ export const portfolioItems: PortfolioItem[] = [
       image:
         "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1200&q=80",
       imageAlt: "Sérénité perfume bottle",
+      gallery: [
+        {
+          image:
+            "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Sérénité perfume bottle",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1620916567453-8d70fdf46573?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Skincare bottle detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Cleanser product detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Watch product detail",
+        },
+      ],
       category: "Fragrance",
       retouching: "Color correction, reflections, shadow",
       deliverables: "Web, Print, Social",
@@ -249,6 +352,22 @@ export const portfolioItems: PortfolioItem[] = [
           "https://images.unsplash.com/photo-1603006984940-6741d02cd9e2?auto=format&fit=crop&w=800&q=80",
         imageAlt: "Amber candle",
       },
+      {
+        id: "pr7",
+        title: "Retro Camera",
+        category: "Tech",
+        image:
+          "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Retro camera product",
+      },
+      {
+        id: "pr8",
+        title: "Solar Shades",
+        category: "Accessories",
+        image:
+          "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Solar shades sunglasses",
+      },
     ],
     cta: {
       title: "Let's make your products stand out.",
@@ -271,6 +390,28 @@ export const portfolioItems: PortfolioItem[] = [
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
       imageAlt: "Natural smile refine",
+      gallery: [
+        {
+          image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Natural smile refine",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Bright smile detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Soft profile detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Warm expression detail",
+        },
+      ],
       category: "Smile / Portrait",
       retouching: "Dental polish, skin, contour",
       deliverables: "Web, Print, Social",
@@ -323,6 +464,22 @@ export const portfolioItems: PortfolioItem[] = [
         image:
           "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80",
         imageAlt: "Detail refine",
+      },
+      {
+        id: "s7",
+        title: "Genuine Smile",
+        category: "Portrait",
+        image:
+          "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Genuine smile portrait",
+      },
+      {
+        id: "s8",
+        title: "Calm Confidence",
+        category: "Portrait",
+        image:
+          "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Calm confidence portrait",
       },
     ],
     cta: {

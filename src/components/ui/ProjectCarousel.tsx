@@ -9,9 +9,10 @@ import { cn } from "@/lib/cn";
 
 type ProjectCarouselProps = {
   projects: PortfolioProject[];
+  onSelect?: (project: PortfolioProject) => void;
 };
 
-export function ProjectCarousel({ projects }: ProjectCarouselProps) {
+export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
@@ -69,21 +70,28 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
               key={project.id}
               className="min-w-0 flex-[0_0_calc((100%-5rem)/6)]"
             >
-              <div className="relative aspect-square overflow-hidden rounded-lg bg-bg-warm">
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt}
-                  fill
-                  sizes="16vw"
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="mt-2.5 font-serif text-[14px] text-ink">
-                {project.title}
-              </h3>
-              <p className="mt-0.5 text-[12px] text-ink-muted">
-                {project.category}
-              </p>
+              <button
+                type="button"
+                onClick={() => onSelect?.(project)}
+                disabled={!onSelect}
+                className="group block w-full cursor-pointer text-left disabled:cursor-default"
+              >
+                <div className="relative aspect-square overflow-hidden rounded-lg bg-bg-warm">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="16vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="mt-2.5 font-serif text-[14px] text-ink">
+                  {project.title}
+                </h3>
+                <p className="mt-0.5 text-[12px] text-ink-muted">
+                  {project.category}
+                </p>
+              </button>
             </article>
           ))}
         </div>

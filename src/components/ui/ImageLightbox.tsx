@@ -1,29 +1,49 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-type ImageLightboxProps = {
+export type LightboxImage = {
   src: string;
   alt: string;
+};
+
+type ImageLightboxProps = {
+  images: LightboxImage[];
   sizes?: string;
   priority?: boolean;
 };
 
 export function ImageLightbox({
-  src,
-  alt,
+  images,
   sizes = "50vw",
   priority = false,
 }: ImageLightboxProps) {
   const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
+  const [origin, setOrigin] = useState({ x: 50, y: 50 });
+
+  const count = images.length;
+  const cover = images[0];
+  const current = images[index] ?? cover;
+
+  const goTo = useCallback(
+    (next: number) => {
+      setIndex(((next % count) + count) % count);
+      setZoomed(false);
+    },
+    [count],
+  );
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
+      if (event.key === "ArrowRight") goTo(index + 1);
+      if (event.key === "ArrowLeft") goTo(index - 1);
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -31,22 +51,45 @@ export function ImageLightbox({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [open, index, goTo]);
+
+  const pointFromEvent = (event: React.MouseEvent<HTMLElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    return {
+      x: ((event.clientX - rect.left) / rect.width) * 100,
+      y: ((event.clientY - rect.top) / rect.height) * 100,
+    };
+  };
+
+  const handleImageClick = (event: React.MouseEvent<HTMLElement>) => {
+    setOrigin(pointFromEvent(event));
+    setZoomed((value) => !value);
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    if (!zoomed) return;
+    setOrigin(pointFromEvent(event));
+  };
 
   return (
     <>
       <button
         type="button"
-        aria-label={`Enlarge image: ${alt}`}
-        onClick={() => setOpen(true)}
+        aria-label={`Enlarge image: ${cover.alt}`}
+        onClick={() => {
+          setIndex(0);
+          setZoomed(false);
+          setOpen(true);
+        }}
         className="absolute inset-0 cursor-zoom-in"
       >
         <Image
-          src={src}
-          alt={alt}
+          src={cover.src}
+          alt={cover.alt}
           fill
           priority={priority}
           sizes={sizes}
+          unoptimized
           className="object-cover"
         />
       </button>
@@ -64,27 +107,69 @@ export function ImageLightbox({
             <button
               type="button"
               aria-label="Close enlarged image"
-              className="absolute top-5 right-5 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+              className="absolute top-5 right-5 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
               onClick={() => setOpen(false)}
             >
               <X className="size-5" />
             </button>
+
+            {count > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Previous image"
+                  className="absolute left-4 z-10 flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 md:left-6"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    goTo(index - 1);
+                  }}
+                >
+                  <ChevronLeft className="size-6" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next image"
+                  className="absolute right-4 z-10 flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 md:right-6"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    goTo(index + 1);
+                  }}
+                >
+                  <ChevronRight className="size-6" />
+                </button>
+                <p className="absolute bottom-5 z-10 text-[13px] tracking-widest text-white/80">
+                  {index + 1} / {count}
+                </p>
+              </>
+            )}
+
             <motion.div
               initial={{ scale: 0.96 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.96 }}
               transition={{ duration: 0.2 }}
-              className="relative h-full w-full"
+              className="relative h-full w-full overflow-hidden"
               onClick={(event) => event.stopPropagation()}
             >
-              <Image
-                src={src}
-                alt={alt}
-                fill
-                sizes="90vw"
-                className="cursor-zoom-out object-contain"
-                onClick={() => setOpen(false)}
-              />
+              <div
+                className={zoomed ? "absolute inset-0 cursor-zoom-out" : "absolute inset-0 cursor-zoom-in"}
+                onClick={handleImageClick}
+                onMouseMove={handleMouseMove}
+              >
+                <Image
+                  key={current.src}
+                  src={current.src}
+                  alt={current.alt}
+                  fill
+                  sizes="90vw"
+                  unoptimized
+                  className="object-contain transition-transform duration-200"
+                  style={{
+                    transform: zoomed ? "scale(2.5)" : "scale(1)",
+                    transformOrigin: `${origin.x}% ${origin.y}%`,
+                  }}
+                />
+              </div>
             </motion.div>
           </motion.div>
         )}
