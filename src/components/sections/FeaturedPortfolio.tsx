@@ -2,6 +2,7 @@
 
 import { portfolioItems } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CardCarousel } from "@/components/ui/CardCarousel";
 import { PortfolioCard } from "@/components/ui/PortfolioCard";
 import { PortfolioCarousel } from "@/components/ui/PortfolioCarousel";
 
@@ -21,10 +22,12 @@ export function FeaturedPortfolio({
           className="my-4 md:mb-6 md:mt-0"
         />
 
-        <div className="hidden gap-4 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {portfolioItems.map((item) => (
-            <PortfolioCard key={item.slug} item={item} />
-          ))}
+        <div className="hidden md:block">
+          <CardCarousel>
+            {portfolioItems.map((item) => (
+              <PortfolioCard key={item.slug} item={item} />
+            ))}
+          </CardCarousel>
         </div>
 
         <div className="md:hidden">

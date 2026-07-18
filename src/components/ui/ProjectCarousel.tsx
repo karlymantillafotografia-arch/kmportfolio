@@ -15,7 +15,7 @@ type ProjectCarouselProps = {
 export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "trimSnaps",
+    loop: true,
     slidesToScroll: 1,
   });
   const [selected, setSelected] = useState(0);
@@ -64,11 +64,11 @@ export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
       </button>
 
       <div className="overflow-hidden px-12" ref={emblaRef}>
-        <div className="flex gap-4">
+        <div className="-ml-4 flex">
           {projects.map((project) => (
             <article
               key={project.id}
-              className="min-w-0 flex-[0_0_calc((100%-5rem)/6)]"
+              className="min-w-0 flex-[0_0_calc(100%/6)] pl-4"
             >
               <button
                 type="button"

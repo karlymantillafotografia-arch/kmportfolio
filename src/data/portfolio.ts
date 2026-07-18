@@ -487,6 +487,79 @@ export const portfolioItems: PortfolioItem[] = [
       body: "Subtle smile and profile work that stays natural and true to you.",
     },
   },
+  {
+    slug: "real-estate",
+    title: "Real Estate",
+    pageTitle: "Real Estate Portfolio",
+    description:
+      "Bright, true-to-space property retouching — clean interiors, balanced light, and inviting exteriors that sell listings.",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Real estate photography sample",
+    featured: {
+      title: "Coastal Villa Listing",
+      description:
+        "Window pull technique, sky replacement, and warm interior balance for a premium villa listing.",
+      image:
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      imageAlt: "Coastal villa exterior",
+      gallery: [
+        {
+          image:
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Coastal villa exterior",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Villa pool detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Villa interior detail",
+        },
+        {
+          image:
+            "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80",
+          imageAlt: "Villa living room detail",
+        },
+      ],
+      category: "Real Estate",
+      retouching: "Window pull, sky swap, color balance",
+      deliverables: "MLS, Web, Print",
+    },
+    projects: [
+      {
+        id: "re1",
+        title: "Modern Loft",
+        category: "Interior",
+        image:
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Modern loft interior",
+      },
+      {
+        id: "re2",
+        title: "Dusk Exterior",
+        category: "Exterior",
+        image:
+          "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "House exterior at dusk",
+      },
+      {
+        id: "re3",
+        title: "Bright Kitchen",
+        category: "Interior",
+        image:
+          "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+        imageAlt: "Bright kitchen interior",
+      },
+    ],
+    cta: {
+      title: "Let's make your listings shine.",
+      body: "Clean, natural property retouching that gets buyers through the door.",
+    },
+  },
 ];
 
 export function getPortfolioBySlug(slug: string) {
