@@ -22,9 +22,9 @@ export function Services({
     : services;
 
   return (
-    <section id="services" className="scroll-mt-20 px-5 pt-5 pb-0 md:px-8 md:pt-6">
+    <section id="services" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-0">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading title={title} className="mb-5 md:mb-6" />
+        <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
 
         <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-6">
           {services.map((service) => (
@@ -49,7 +49,7 @@ export function Services({
         </div>
 
         {compact ? (
-          <div className="mt-4 mb-0 flex justify-center md:hidden">
+          <div className="mt-2 mb-5 flex justify-center md:hidden">
             <Link
               href="/services"
               className="inline-flex items-center gap-1 text-xs tracking-wide text-ink transition-opacity hover:opacity-60"

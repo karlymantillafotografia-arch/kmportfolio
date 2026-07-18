@@ -1,6 +1,7 @@
 import { videos } from "@/data/videos";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { VideoCard } from "@/components/ui/VideoCard";
+import { PeekCarousel } from "@/components/ui/PeekCarousel";
 
 type VideosProcessProps = {
   limit?: number;
@@ -20,17 +21,20 @@ export function VideosProcess({
       {showHeading ? (
         <SectionHeading title={title} className="mb-5 md:mb-6" />
       ) : null}
-      <div
-        className={
-          limit === 2
-            ? "grid grid-cols-1 gap-3 sm:grid-cols-2"
-            : "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
-        }
-      >
-        {items.map((video) => (
-          <VideoCard key={video.id} video={video} />
-        ))}
-      </div>
+
+      {limit ? (
+        <PeekCarousel dotsClassName="mt-1.5 mb-5">
+          {items.map((video) => (
+            <VideoCard key={video.id} video={video} hideDescription />
+          ))}
+        </PeekCarousel>
+      ) : (
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((video) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

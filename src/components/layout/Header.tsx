@@ -41,11 +41,11 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-bg/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b-0 bg-bg/95 backdrop-blur-md md:border-b md:border-border/50">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:h-16 md:px-8">
         <Link
           href="/"
-          className="font-serif text-2xl tracking-tight text-ink md:text-[1.7rem]"
+          className="font-serif text-[1.65rem] tracking-tight text-ink md:text-[1.7rem]"
         >
           Karly
         </Link>
@@ -78,13 +78,13 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex size-9 items-center justify-center rounded-md border border-border text-ink lg:hidden"
+          className="inline-flex size-9 items-center justify-center rounded-full bg-[#efe8df] text-ink lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          {open ? <X className="size-5" /> : <Menu className="size-5" strokeWidth={1.75} />}
         </button>
       </div>
 

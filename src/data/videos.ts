@@ -35,4 +35,13 @@ export const videos: VideoItem[] = [
       "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80",
     href: "#",
   },
+  {
+    id: "color-grading",
+    title: "Color Grading Essentials",
+    description: "Balance tones and mood for polished, delivery-ready images.",
+    duration: "05:04",
+    thumbnail:
+      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80",
+    href: "#",
+  },
 ];

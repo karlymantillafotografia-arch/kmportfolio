@@ -11,7 +11,7 @@ export default function HomePage() {
     <PageShell>
       <Hero />
       <FeaturedPortfolio />
-      <BeforeAfter limit={4} />
+      <BeforeAfter limit={4} mobileLimit={4} />
       <Services compact />
       <VideosAndConsulting />
       <CtaBanner />

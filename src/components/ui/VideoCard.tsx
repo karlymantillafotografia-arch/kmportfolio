@@ -6,9 +6,14 @@ import { cn } from "@/lib/cn";
 type VideoCardProps = {
   video: VideoItem;
   className?: string;
+  hideDescription?: boolean;
 };
 
-export function VideoCard({ video, className }: VideoCardProps) {
+export function VideoCard({
+  video,
+  className,
+  hideDescription = false,
+}: VideoCardProps) {
   return (
     <article className={cn("flex flex-col gap-1.5", className)}>
       <a
@@ -20,7 +25,7 @@ export function VideoCard({ video, className }: VideoCardProps) {
           src={video.thumbnail}
           alt=""
           fill
-          sizes="(max-width: 768px) 90vw, 20vw"
+          sizes="(max-width: 768px) 45vw, 20vw"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
         <span className="absolute inset-0 flex items-center justify-center bg-ink/10">
@@ -33,12 +38,14 @@ export function VideoCard({ video, className }: VideoCardProps) {
         </span>
       </a>
       <div>
-        <h3 className="font-serif text-[13px] leading-snug text-ink">
+        <h3 className="font-serif text-[12px] leading-snug text-ink md:text-[13px]">
           {video.title}
         </h3>
-        <p className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-ink-muted">
-          {video.description}
-        </p>
+        {hideDescription ? null : (
+          <p className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-ink-muted">
+            {video.description}
+          </p>
+        )}
       </div>
     </article>
   );

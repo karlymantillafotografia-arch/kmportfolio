@@ -5,6 +5,7 @@ import { getPortfolioBySlug, portfolioItems } from "@/data/portfolio";
 import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/Button";
 import { CtaBanner } from "@/components/sections/CtaBanner";
+import { PortfolioCategoryDesktop } from "@/components/sections/PortfolioCategoryDesktop";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -33,14 +34,15 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <section className="mx-auto grid max-w-6xl gap-6 px-5 py-8 md:grid-cols-2 md:items-center md:px-8 md:py-10">
+      {/* Mobile: layout actual */}
+      <section className="mx-auto grid max-w-6xl gap-6 px-5 py-8 md:hidden">
         <div className="relative aspect-[5/4] overflow-hidden rounded-lg bg-surface-muted">
           <Image
             src={item.image}
             alt={item.imageAlt}
             fill
             priority
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -48,9 +50,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           <p className="text-[10px] tracking-[0.2em] text-ink-muted uppercase">
             Portfolio
           </p>
-          <h1 className="mt-2 font-serif text-3xl text-ink md:text-4xl">
-            {item.title}
-          </h1>
+          <h1 className="mt-2 font-serif text-3xl text-ink">{item.title}</h1>
           <p className="mt-3 max-w-md text-[13px] leading-relaxed text-ink-muted">
             {item.description}
           </p>
@@ -64,7 +64,12 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-      <CtaBanner />
+      <div className="md:hidden">
+        <CtaBanner />
+      </div>
+
+      {/* Desktop: mockup nuevo */}
+      <PortfolioCategoryDesktop item={item} />
     </PageShell>
   );
 }

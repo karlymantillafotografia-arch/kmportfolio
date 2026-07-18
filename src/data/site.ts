@@ -15,6 +15,8 @@ export const site = {
   cta: {
     title: "Ready to elevate your images?",
     body: "Let's work together and bring your photos to the next level.",
+    mobileBody:
+      "Let's work together! Hire me on Upwork for professional, reliable, and high-quality results.",
   },
   consulting: {
     title: "Level up your skills and grow your business",
@@ -23,6 +25,12 @@ export const site = {
       "1-on-1 Coaching",
       "Portfolio Reviews",
       "Workflow Optimization",
+    ],
+    mobileFeatures: [
+      "1-on-1 Coaching",
+      "Workflow Optimization",
+      "Portfolio Reviews",
+      "Personalized Guidance",
     ],
   },
 } as const;

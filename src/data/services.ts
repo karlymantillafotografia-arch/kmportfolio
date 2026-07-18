@@ -1,6 +1,7 @@
 export type ServiceItem = {
   id: string;
   title: string;
+  shortTitle?: string;
   description: string;
   icon: "portrait" | "fashion" | "product" | "ai" | "batch" | "consulting";
 };
@@ -21,6 +22,7 @@ export const services: ServiceItem[] = [
   {
     id: "product",
     title: "Product & E-commerce",
+    shortTitle: "Product Editing",
     description: "Consistent product imagery for online stores.",
     icon: "product",
   },

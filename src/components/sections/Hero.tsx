@@ -8,12 +8,11 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 import { SealBadge } from "@/components/ui/SealBadge";
 import { UpworkMark } from "@/components/ui/UpworkMark";
 
-const HERO_IMAGE = "/images/hero-v4.png";
+const HERO_IMAGE = "/images/hero-v5.png";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Mockup colors: left off-white → right warm beige */}
+    <section className="relative overflow-x-clip">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -23,61 +22,70 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Same width + side padding as Featured Portfolio */}
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-6 px-5 py-5 md:h-[min(52vh,500px)] md:grid-cols-2 md:gap-8 md:px-8 md:py-5">
+      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-[1.15fr_0.9fr] items-start gap-1 pl-5 pr-0 pt-0 pb-0 md:h-[min(52vh,500px)] md:grid-cols-2 md:items-stretch md:gap-8 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="order-2 flex h-full w-full max-w-lg flex-col justify-center md:order-1 lg:max-w-[30rem]"
+          className="relative z-20 flex w-full max-w-lg flex-col justify-start pt-4 pb-1 pr-6 md:h-full md:max-w-lg md:justify-center md:py-0 md:pr-0 lg:max-w-[30rem]"
         >
-          <p className="font-script text-2xl text-script md:text-[1.85rem] lg:text-[2.1rem]">
+          <p className="font-script text-[1.3rem] leading-none text-script md:text-[1.85rem] lg:text-[2.1rem]">
             {site.greeting}
           </p>
-          <h1 className="mt-1.5 font-serif text-[2.05rem] leading-[1.08] text-ink md:text-[2.55rem] lg:text-[2.95rem]">
-            {site.tagline}
+          <h1 className="mt-0.5 font-serif text-[1.3rem] leading-[1.12] tracking-[-0.01em] text-ink md:mt-1.5 md:text-[2.55rem] lg:text-[2.95rem]">
+            <span className="md:hidden">
+              Professional Photo
+              <br />
+              Retouching & Image
+              <br />
+              Editing
+            </span>
+            <span className="hidden md:inline">{site.tagline}</span>
           </h1>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-muted md:text-[15px]">
+          <p className="mt-3 hidden max-w-md text-sm leading-relaxed text-ink-muted md:block md:text-[15px]">
             {site.description}
           </p>
 
-          <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:items-center">
+          <div className="mt-2 flex w-fit flex-col gap-1 md:mt-5 md:w-auto md:flex-row md:items-center md:gap-2.5">
             <Button
               href={site.upworkUrl}
               external
-              className="w-full px-4 py-2.5 text-[13px] sm:w-auto"
+              className="h-6 w-auto px-2.5 py-0 text-[9px] leading-none md:h-auto md:px-4 md:py-2.5 md:text-[13px]"
             >
-              <UpworkMark className="size-3.5" />
+              <UpworkMark className="size-2.5 md:size-3.5" />
               Hire me on Upwork
             </Button>
             <Button
               href="/portfolio"
               variant="secondary"
               showArrow
-              className="w-full px-4 py-2.5 text-[13px] sm:w-auto"
+              className="h-6 w-auto border-ink/80 bg-[#f3eee8] px-2.5 py-0 text-[9px] leading-none hover:bg-[#f3eee8] hover:text-ink md:h-auto md:border-ink md:bg-transparent md:px-4 md:py-2.5 md:text-[13px] md:hover:bg-ink md:hover:text-bg [&_svg]:size-2.5 md:[&_svg]:size-3.5"
             >
               View Portfolio
             </Button>
           </div>
 
-          <SocialLinks className="mt-5 [&_p]:text-[13px] [&_svg]:size-[15px]" showLabel />
+          <SocialLinks
+            className="mt-1.5 md:mt-5 [&_p]:text-[8px] md:[&_p]:text-[13px] [&_svg]:size-2.5 md:[&_svg]:size-[15px]"
+            showLabel
+          />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45 }}
-          className="relative order-1 h-[40vh] w-full md:order-2 md:h-full md:min-h-0"
+          className="relative z-10 -ml-10 h-[250px] w-[calc(100%+3.5rem)] translate-x-6 md:ml-0 md:h-full md:w-full md:translate-x-0 md:overflow-hidden"
         >
           <Image
             src={HERO_IMAGE}
             alt="Karly — professional photo retoucher"
             fill
             priority
-            sizes="(max-width: 768px) 90vw, 48vw"
-            className="object-contain object-bottom md:object-right-bottom"
+            sizes="(max-width: 768px) 65vw, 48vw"
+            className="origin-bottom-right scale-[1.12] object-contain object-right-bottom md:origin-center md:scale-100 md:object-right-top"
           />
-          <SealBadge className="absolute right-2 bottom-2 z-10 scale-90 md:right-1 md:bottom-4 md:scale-100" />
+          <SealBadge className="absolute right-0 bottom-0 z-10 scale-[0.5] md:right-1 md:bottom-3 md:scale-100" />
         </motion.div>
       </div>
     </section>

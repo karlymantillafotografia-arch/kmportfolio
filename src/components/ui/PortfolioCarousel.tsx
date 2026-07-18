@@ -35,27 +35,29 @@ export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
   return (
     <div>
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-4">
+        <div className="flex items-start gap-2.5">
           {items.map((item) => (
-            <div key={item.slug} className="min-w-0 flex-[0_0_82%]">
-              <PortfolioCard item={item} />
+            <div key={item.slug} className="min-w-0 flex-[0_0_42%]">
+              <PortfolioCard item={item} className="w-full" />
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-5 flex justify-center gap-2">
-        {items.map((item, index) => (
-          <button
-            key={item.slug}
-            type="button"
-            aria-label={`Go to slide ${index + 1}`}
-            className={cn(
-              "size-2 rounded-full transition-colors",
-              selected === index ? "bg-ink" : "bg-border",
-            )}
-            onClick={() => emblaApi?.scrollTo(index)}
-          />
-        ))}
+      <div className="my-3 flex justify-center gap-1.5">
+        {Array.from({ length: Math.max(1, Math.ceil(items.length / 2)) }).map(
+          (_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Go to slide ${index + 1}`}
+              className={cn(
+                "size-1.5 rounded-full transition-colors",
+                Math.floor(selected / 2) === index ? "bg-ink" : "bg-border",
+              )}
+              onClick={() => emblaApi?.scrollTo(index * 2)}
+            />
+          ),
+        )}
       </div>
     </div>
   );

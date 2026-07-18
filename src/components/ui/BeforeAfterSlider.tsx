@@ -21,7 +21,7 @@ export function BeforeAfterSlider({ item, className }: BeforeAfterSliderProps) {
       )}
     >
       <ReactCompareSlider
-        className="aspect-[5/4] w-full"
+        className="aspect-[4/3] w-full md:aspect-[5/4]"
         itemOne={
           <ReactCompareSliderImage
             src={item.before}

@@ -1,5 +1,5 @@
 import {
-  Sparkles,
+  ScanFace,
   Shirt,
   ShoppingBag,
   WandSparkles,
@@ -10,7 +10,7 @@ import type { ServiceItem } from "@/data/services";
 import { cn } from "@/lib/cn";
 
 const icons = {
-  portrait: Sparkles,
+  portrait: ScanFace,
   fashion: Shirt,
   product: ShoppingBag,
   ai: WandSparkles,
@@ -31,17 +31,31 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const Icon = icons[service.icon];
 
+  const label =
+    compact && service.shortTitle ? service.shortTitle : service.title;
+
   return (
     <article
       className={cn(
-        "flex flex-col items-start rounded-lg bg-surface-muted",
-        compact ? "gap-1.5 p-3" : "gap-1.5 p-3.5",
+        "flex flex-col",
+        compact
+          ? "items-center gap-1.5 bg-transparent p-1 text-center"
+          : "items-start gap-1.5 rounded-lg bg-surface-muted p-3.5",
         className,
       )}
     >
-      <Icon className="size-4 text-ink" strokeWidth={1.5} aria-hidden />
-      <h3 className="font-serif text-[13px] leading-snug text-ink">
-        {service.title}
+      <Icon
+        className={cn("text-ink", compact ? "size-5" : "size-4")}
+        strokeWidth={1.35}
+        aria-hidden
+      />
+      <h3
+        className={cn(
+          "font-serif leading-snug text-ink",
+          compact ? "text-[11px]" : "text-[13px]",
+        )}
+      >
+        {label}
       </h3>
       {!compact ? (
         <p className="text-[11px] leading-relaxed text-ink-muted">
