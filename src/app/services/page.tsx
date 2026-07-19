@@ -17,9 +17,8 @@ export default function ServicesPage() {
         <PageIntro
           title="Services"
           description="End-to-end image finishing for brands, photographers, and growing creative businesses."
-          className="pt-5 md:pt-10"
         />
-        <div className="my-auto py-5 md:py-0">
+        <div className="pt-2 md:my-auto md:py-0">
           <Services showHeading={false} />
         </div>
         <CtaBanner />

@@ -19,10 +19,9 @@ export default function ConsultingPage() {
         <PageIntro
           title="Consulting & Mentorship"
           description="Level up your craft, workflow, and client business with guided support."
-          className="pt-5 md:pt-10"
         />
-        <div className="my-auto">
-          <section className="px-5 py-5 md:px-8 md:py-0">
+        <div className="pt-2 md:my-auto">
+          <section className="px-5 md:px-8 md:py-0">
             <div className="mx-auto max-w-7xl">
               <Consulting
                 showHeading={false}

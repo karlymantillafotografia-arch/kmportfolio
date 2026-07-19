@@ -18,9 +18,8 @@ export default function BeforeAfterPage() {
         <PageIntro
           title="Before & After"
           description="Drag the slider to compare original captures with finished retouching."
-          className="pt-5 md:pt-10"
         />
-        <div className="my-auto pt-8 md:pt-0">
+        <div className="pt-2 md:my-auto md:pt-0">
           <BeforeAfter carousel showHeading={false} showTitles mobileTwoRows />
         </div>
         <CtaBanner />

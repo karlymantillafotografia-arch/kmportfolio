@@ -47,7 +47,8 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-bg font-sans text-ink">
         <Header />
-        <main className="flex flex-1 flex-col">{children}</main>
+        {/* Compensa el header fixed (h-14 móvil / h-16 desde md) */}
+        <main className="flex flex-1 flex-col pt-14 md:pt-16">{children}</main>
         <Footer />
       </body>
     </html>

@@ -16,10 +16,9 @@ export default function VideosPage() {
         <PageIntro
           title="Videos / Process"
           description="Short walkthroughs that show how polished results come together."
-          className="pt-5 md:pt-10"
         />
-        <div className="my-auto">
-          <section className="px-5 py-5 md:px-8 md:py-0">
+        <div className="pt-2 md:my-auto">
+          <section className="px-5 md:px-8 md:py-0">
             <div className="mx-auto max-w-6xl">
               <VideosProcess showHeading={false} columns={4} />
             </div>

@@ -20,7 +20,7 @@ export function MobileNav({ onClose }: MobileNavProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 top-14 z-50 lg:hidden"
+      className="fixed inset-0 top-14 z-50 md:top-16 lg:hidden"
     >
       {/* Capa oscura sobre la página; no desplaza el contenido */}
       <button
@@ -35,7 +35,7 @@ export function MobileNav({ onClose }: MobileNavProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -8 }}
         transition={{ duration: 0.2 }}
-        className="relative max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-t border-border bg-bg px-5 py-6 shadow-lg"
+        className="relative max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-t border-border bg-bg px-5 py-6 shadow-lg md:max-h-[calc(100dvh-4rem)]"
       >
         <nav className="flex flex-col gap-1">
           {NAV_ITEMS.map((item, index) => {

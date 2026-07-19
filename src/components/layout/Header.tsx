@@ -42,7 +42,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b-0 bg-bg/95 backdrop-blur-md md:border-b md:border-border/50">
+    <header className="fixed inset-x-0 top-0 z-50 border-b-0 bg-bg/95 backdrop-blur-md md:border-b md:border-border/50">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:h-16 md:px-8">
         <Link href="/" aria-label="Karly — home" className="flex items-center">
           <Image

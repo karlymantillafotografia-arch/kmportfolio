@@ -19,10 +19,9 @@ export default function ContactPage() {
         <PageIntro
           title="Contact"
           description="Ready to elevate your images? Reach out and let's start a project."
-          className="pt-5 md:pt-10"
         />
-        <div className="my-auto">
-          <section className="mx-auto max-w-xl px-5 py-5 text-center md:px-8 md:py-0">
+        <div className="pt-2 md:my-auto">
+          <section className="mx-auto max-w-xl px-5 text-center md:px-8 md:py-0">
             <div className="flex flex-col items-center gap-4">
               <Button
                 href={site.upworkUrl}

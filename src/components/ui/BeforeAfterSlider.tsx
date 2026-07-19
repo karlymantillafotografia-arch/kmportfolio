@@ -70,14 +70,9 @@ function CompareView({
 
 function Badges() {
   return (
-    <>
-      <span className="pointer-events-none absolute top-2 left-2 rounded bg-surface/85 px-1.5 py-0.5 text-[9px] tracking-wide text-ink uppercase backdrop-blur-sm">
-        Before
-      </span>
-      <span className="pointer-events-none absolute top-2 right-2 rounded bg-surface/85 px-1.5 py-0.5 text-[9px] tracking-wide text-ink uppercase backdrop-blur-sm">
-        After
-      </span>
-    </>
+    <span className="pointer-events-none absolute top-2 left-2 rounded bg-surface/85 px-1.5 py-0.5 text-[9px] tracking-wide text-ink uppercase backdrop-blur-sm">
+      Before
+    </span>
   );
 }
 
