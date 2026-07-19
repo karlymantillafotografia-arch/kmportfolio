@@ -33,8 +33,8 @@ export function Consulting({
         />
       ) : null}
 
-      <div className="grid grid-cols-2 overflow-hidden rounded-lg bg-bg-warm">
-        <div className="flex flex-col justify-center px-3.5 py-4 md:px-6 md:py-6">
+      <div className="grid grid-cols-[1.15fr_0.85fr] overflow-hidden rounded-lg bg-bg-warm md:grid-cols-2">
+        <div className="flex flex-col justify-start px-3.5 py-3 md:justify-center md:px-6 md:py-6">
           <h3 className="font-serif text-[13px] leading-snug text-ink md:text-lg">
             {site.consulting.title}
           </h3>
@@ -42,7 +42,7 @@ export function Consulting({
             {site.consulting.body}
           </p>
 
-          <ul className="mt-2.5 grid grid-cols-2 gap-x-2 gap-y-1.5 md:hidden">
+          <ul className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1 md:hidden">
             {site.consulting.mobileFeatures.map((feature) => (
               <li
                 key={feature}
@@ -74,7 +74,7 @@ export function Consulting({
             ))}
           </ul>
 
-          <div className="mt-3 md:mt-4">
+          <div className="mt-2.5 md:mt-4">
             <Button
               href={ctaHref}
               showArrow
@@ -85,13 +85,13 @@ export function Consulting({
           </div>
         </div>
 
-        <div className="relative min-h-40 w-full md:min-h-[240px]">
+        <div className="relative min-h-36 w-full self-stretch md:min-h-[240px]">
           <Image
             src={CONSULTING_IMAGE}
             alt="Editing workspace for consulting sessions"
             fill
-            sizes="(max-width: 768px) 50vw, 40vw"
-            className="object-cover"
+            sizes="(max-width: 768px) 45vw, 40vw"
+            className="object-cover object-[20%_center] md:object-center"
           />
         </div>
       </div>

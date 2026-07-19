@@ -25,7 +25,10 @@ export function VideosProcess({
       ) : null}
 
       {limit ? (
-        <PeekCarousel dotsClassName="mt-1.5 mb-5">
+        <PeekCarousel
+          slideClassName="flex-[0_0_78%]"
+          dotsClassName="mt-2 mb-0"
+        >
           {items.map((video) => (
             <VideoCard key={video.id} video={video} hideDescription />
           ))}

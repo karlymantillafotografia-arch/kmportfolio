@@ -145,24 +145,22 @@ export function VideoCard({
           {video.duration}
         </span>
       </button>
-      <div>
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="font-serif text-[12px] leading-snug text-ink md:text-[13px]">
-            {video.title}
-          </h3>
-          {video.youtubeId ? (
-            <a
-              href={video.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-0.5 flex shrink-0 items-center gap-1 text-[10px] text-ink-muted transition-colors hover:text-ink"
-              aria-label={`Watch ${video.title} on YouTube`}
-            >
-              YouTube
-              <ExternalLink className="size-2.5" aria-hidden />
-            </a>
-          ) : null}
-        </div>
+      <div className="min-w-0">
+        <h3 className="line-clamp-2 font-serif text-[12px] leading-snug text-ink md:text-[13px]">
+          {video.title}
+        </h3>
+        {video.youtubeId ? (
+          <a
+            href={video.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-0.5 inline-flex items-center gap-1 text-[10px] text-ink-muted transition-colors hover:text-ink"
+            aria-label={`Watch ${video.title} on YouTube`}
+          >
+            YouTube
+            <ExternalLink className="size-2.5" aria-hidden />
+          </a>
+        ) : null}
         {hideDescription ? null : (
           <p className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-ink-muted">
             {video.description}
