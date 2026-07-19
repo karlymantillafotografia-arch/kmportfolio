@@ -21,11 +21,7 @@ export function Services({
     <section id="services" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-0">
       <div className="mx-auto max-w-6xl">
         {showHeading ? (
-          <SectionHeading
-            title={title}
-            href="/services"
-            className="my-4 md:my-6"
-          />
+          <SectionHeading title={title} href="/services" />
         ) : null}
 
         {desktopCarousel ? (
@@ -51,7 +47,7 @@ export function Services({
         {compact ? (
           /* Home móvil: carrusel infinito con todos los servicios */
           <div className="md:hidden">
-            <PeekCarousel slideClassName="flex-[0_0_31%]" dotsClassName="mt-1.5 mb-2">
+            <PeekCarousel slideClassName="flex-[0_0_31%]" dotsClassName="mt-1.5 mb-0">
               {services.map((service) => (
                 <ServiceCard
                   key={service.id}

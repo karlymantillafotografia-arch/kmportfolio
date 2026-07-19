@@ -146,7 +146,7 @@ export function VideoCard({
         </span>
       </button>
       <div className="min-w-0">
-        <h3 className="line-clamp-2 font-serif text-[12px] leading-snug text-ink md:text-[13px]">
+        <h3 className="line-clamp-2 font-serif text-[12px] leading-snug text-ink lg:text-[13px]">
           {video.title}
         </h3>
         {video.youtubeId ? (

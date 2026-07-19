@@ -33,11 +33,11 @@ export function FeaturedPortfolio({
             title={title}
             mobileTitle="Portfolio"
             href="/portfolio"
-            className="my-4 md:my-6"
           />
         )}
 
-        <div className="hidden md:block">
+        {/* Escritorio (lg+): carrusel ancho. Móvil y tablet: peek tipo celular */}
+        <div className="hidden lg:block">
           <CardCarousel>
             {portfolioItems.map((item) => (
               <PortfolioCard key={item.slug} item={item} />
@@ -45,9 +45,9 @@ export function FeaturedPortfolio({
           </CardCarousel>
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           {mobileTwoRows && secondRow.length > 0 ? (
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-4 md:gap-5">
               <PortfolioCarousel items={firstRow} />
               <PortfolioCarousel items={secondRow} />
             </div>

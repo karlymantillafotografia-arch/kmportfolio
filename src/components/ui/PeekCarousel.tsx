@@ -13,7 +13,7 @@ type PeekCarouselProps = {
 export function PeekCarousel({
   children,
   slideClassName = "flex-[0_0_42%]",
-  dotsClassName = "my-3",
+  dotsClassName = "mt-3 mb-0",
 }: PeekCarouselProps) {
   const originals = Children.toArray(children);
   // Con pocas tarjetas el loop de Embla se desactiva (no llenan el ancho);

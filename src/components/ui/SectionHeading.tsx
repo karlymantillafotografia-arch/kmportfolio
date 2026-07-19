@@ -25,7 +25,7 @@ export function SectionHeading({
   );
 
   return (
-    <div className={cn("flex items-center gap-3", className)}>
+    <div className={cn("my-5 flex items-center gap-3 md:my-6", className)}>
       <span className="h-px flex-1 bg-border" aria-hidden />
       <h2 className="shrink-0 text-center text-[11px] font-medium tracking-[0.2em] text-ink uppercase">
         {href ? (

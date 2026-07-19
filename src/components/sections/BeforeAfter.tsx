@@ -42,12 +42,12 @@ export function BeforeAfter({
           <SectionHeading
             title={title}
             href="/before-after"
-            className="my-4 md:my-6"
           />
         )}
 
+        {/* Escritorio (lg+): carrusel/grid ancho. Móvil y tablet: peek tipo celular */}
         {carousel ? (
-          <div className="hidden sm:block">
+          <div className="hidden lg:block">
             <CardCarousel>
               {desktopItems.map((item) => (
                 <BeforeAfterSlider
@@ -60,7 +60,7 @@ export function BeforeAfter({
             </CardCarousel>
           </div>
         ) : (
-          <div className="hidden gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          <div className="hidden gap-4 lg:grid lg:grid-cols-4 lg:gap-5">
             {desktopItems.map((item) => (
               <BeforeAfterSlider
                 key={item.id}
@@ -72,14 +72,17 @@ export function BeforeAfter({
           </div>
         )}
 
-        <div className="sm:hidden">
+        <div className="lg:hidden">
           {mobileTwoRows && mobileItems.length > 3 ? (
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-4 md:gap-5">
               {[
                 mobileItems.slice(0, Math.ceil(mobileItems.length / 2)),
                 mobileItems.slice(Math.ceil(mobileItems.length / 2)),
               ].map((row, rowIndex) => (
-                <PeekCarousel key={rowIndex}>
+                <PeekCarousel
+                  key={rowIndex}
+                  slideClassName="flex-[0_0_42%] md:flex-[0_0_34%]"
+                >
                   {row.map((item) => (
                     <BeforeAfterSlider
                       key={item.id}
@@ -92,7 +95,7 @@ export function BeforeAfter({
               ))}
             </div>
           ) : (
-            <PeekCarousel>
+            <PeekCarousel slideClassName="flex-[0_0_42%] md:flex-[0_0_34%]">
               {mobileItems.map((item) => (
                 <BeforeAfterSlider
                   key={item.id}

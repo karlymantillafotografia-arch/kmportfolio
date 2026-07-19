@@ -261,7 +261,7 @@ export function BeforeAfterSlider({
                       <Info className="size-4" />
                     </button>
 
-                    {/* Móvil: globo sobre la imagen. Escritorio: a la derecha */}
+                    {/* Móvil: centrado con el mismo margen en los 4 lados. Tablet: sobre la imagen. Escritorio (lg+): a la derecha */}
                     <AnimatePresence>
                       {showInfo && (
                         <motion.div
@@ -269,18 +269,18 @@ export function BeforeAfterSlider({
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute inset-x-2 top-12 z-10 max-h-[calc(100%-4rem)] md:inset-x-auto md:top-0 md:left-full md:ml-5 md:max-h-full md:w-max md:max-w-[min(24rem,40vw)]"
+                          className="absolute inset-2 z-10 flex min-h-0 w-auto max-w-full overflow-hidden md:inset-auto md:inset-x-2 md:top-12 md:max-h-[calc(100%-4rem)] lg:inset-x-auto lg:top-0 lg:left-full lg:ml-5 lg:max-h-full lg:w-max lg:max-w-[min(24rem,40vw)] lg:overflow-visible"
                         >
-                          <span className="absolute top-4 -left-1.5 hidden size-3 rotate-45 bg-[#57524c]/70 md:block" />
-                          <div className="max-h-full overflow-y-auto rounded-xl bg-[#57524c]/70 p-4 text-white backdrop-blur-sm md:p-5">
-                            <p className="text-center text-[10px] font-medium tracking-[0.18em] text-white/75 uppercase">
+                          <span className="absolute top-4 -left-1.5 hidden size-3 rotate-45 bg-[#57524c]/70 lg:block" />
+                          <div className="h-full min-h-0 w-full overflow-y-auto overscroll-contain rounded-xl bg-[#57524c]/70 p-4 text-white backdrop-blur-sm md:h-auto md:max-h-full md:p-5 lg:p-5">
+                            <p className="text-center text-[10px] font-medium tracking-[0.18em] text-white/75 uppercase md:text-xs lg:text-[10px]">
                               {current.title}
                             </p>
-                            <h3 className="mt-1 text-center font-serif text-lg font-semibold">
+                            <h3 className="mt-1 text-center font-serif text-lg font-semibold md:text-2xl lg:text-lg">
                               {current.editsHeading ??
                                 "Ediciones realizadas en la imagen"}
                             </h3>
-                            <ul className="mt-3 list-disc space-y-0.5 pl-5 text-left text-[13px] leading-snug text-white/95 marker:text-white/60">
+                            <ul className="mt-3 list-disc space-y-0.5 pl-5 text-left text-[13px] leading-snug text-white/95 marker:text-white/60 md:mt-4 md:space-y-1 md:pl-6 md:text-base md:leading-relaxed lg:mt-3 lg:space-y-0.5 lg:pl-5 lg:text-[13px] lg:leading-snug">
                               {current.edits.map((edit) => (
                                 <li key={edit}>{edit}</li>
                               ))}

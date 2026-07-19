@@ -21,12 +21,12 @@ export function VideosProcess({
   return (
     <section id="videos" className="scroll-mt-20">
       {showHeading ? (
-        <SectionHeading title={title} href="/videos" className="my-4 md:my-6" />
+        <SectionHeading title={title} href="/videos" />
       ) : null}
 
       {limit ? (
         <PeekCarousel
-          slideClassName="flex-[0_0_78%]"
+          slideClassName="flex-[0_0_78%] md:flex-[0_0_40%]"
           dotsClassName="mt-2 mb-0"
         >
           {items.map((video) => (

@@ -50,14 +50,14 @@ export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
           {slides.map((item, index) => (
             <div
               key={`${item.slug}-${index}`}
-              className="min-w-0 flex-[0_0_42%] pl-2.5"
+              className="min-w-0 flex-[0_0_42%] pl-2.5 md:flex-[0_0_34%]"
             >
               <PortfolioCard item={item} className="w-full" />
             </div>
           ))}
         </div>
       </div>
-      <div className="my-3 flex justify-center gap-1.5">
+      <div className="mt-3 mb-0 flex justify-center gap-1.5">
         {Array.from({ length: Math.max(1, Math.ceil(slides.length / 2)) }).map(
           (_, index) => (
             <button
