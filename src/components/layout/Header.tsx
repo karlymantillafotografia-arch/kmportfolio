@@ -51,7 +51,7 @@ export function Header() {
             width={40}
             height={40}
             priority
-            className="size-9 object-contain mix-blend-multiply md:size-10"
+            className="size-9 object-contain md:size-10"
           />
         </Link>
 

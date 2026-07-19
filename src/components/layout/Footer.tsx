@@ -28,7 +28,7 @@ export function Footer() {
               alt="KM logo"
               width={32}
               height={32}
-              className="size-7 object-contain mix-blend-multiply md:size-8"
+              className="size-7 object-contain md:size-8"
             />
           </Link>
           <p className="mt-0.5 text-[10px] text-ink-muted md:mt-1 md:text-[11px]">
