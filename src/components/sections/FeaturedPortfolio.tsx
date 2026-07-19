@@ -25,11 +25,7 @@ export function FeaturedPortfolio({
   return (
     <section
       id="portfolio"
-      className={
-        showHeading
-          ? "scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-5"
-          : "scroll-mt-20 px-5 pt-0 pb-0 md:px-8"
-      }
+      className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8"
     >
       <div className="mx-auto max-w-6xl">
         {showHeading && (
