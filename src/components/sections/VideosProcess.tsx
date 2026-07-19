@@ -7,12 +7,14 @@ type VideosProcessProps = {
   limit?: number;
   title?: string;
   showHeading?: boolean;
+  columns?: 3 | 4;
 };
 
 export function VideosProcess({
   limit,
   title = "Videos / Process",
   showHeading = true,
+  columns = 3,
 }: VideosProcessProps) {
   const items = limit ? videos.slice(0, limit) : videos;
 
@@ -29,7 +31,13 @@ export function VideosProcess({
           ))}
         </PeekCarousel>
       ) : (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          className={
+            columns === 4
+              ? "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
+              : "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+          }
+        >
           {items.map((video) => (
             <VideoCard key={video.id} video={video} />
           ))}

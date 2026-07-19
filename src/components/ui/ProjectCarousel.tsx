@@ -10,9 +10,18 @@ import { cn } from "@/lib/cn";
 type ProjectCarouselProps = {
   projects: PortfolioProject[];
   onSelect?: (project: PortfolioProject) => void;
+  /** Ancho de cada tarjeta (por defecto ~6 visibles en escritorio). */
+  slideClassName?: string;
+  /** Versión reducida para móvil: sin flechas y con textos más pequeños. */
+  compact?: boolean;
 };
 
-export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
+export function ProjectCarousel({
+  projects,
+  onSelect,
+  slideClassName = "flex-[0_0_15.5%]",
+  compact = false,
+}: ProjectCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     loop: true,
@@ -44,31 +53,35 @@ export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
 
   return (
     <div className="relative">
-      <button
-        type="button"
-        aria-label="Previous projects"
-        disabled={!canPrev}
-        onClick={() => emblaApi?.scrollPrev()}
-        className="absolute top-1/2 left-0 z-10 flex size-10 -translate-y-[120%] items-center justify-center rounded-full border border-border bg-surface text-ink shadow-sm transition disabled:opacity-30"
-      >
-        <ChevronLeft className="size-5" />
-      </button>
-      <button
-        type="button"
-        aria-label="Next projects"
-        disabled={!canNext}
-        onClick={() => emblaApi?.scrollNext()}
-        className="absolute top-1/2 right-0 z-10 flex size-10 -translate-y-[120%] items-center justify-center rounded-full border border-border bg-surface text-ink shadow-sm transition disabled:opacity-30"
-      >
-        <ChevronRight className="size-5" />
-      </button>
+      {!compact && (
+        <>
+          <button
+            type="button"
+            aria-label="Previous projects"
+            disabled={!canPrev}
+            onClick={() => emblaApi?.scrollPrev()}
+            className="absolute top-1/2 left-0 z-10 flex size-10 -translate-y-[120%] items-center justify-center rounded-full border border-border bg-surface text-ink shadow-sm transition disabled:opacity-30"
+          >
+            <ChevronLeft className="size-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next projects"
+            disabled={!canNext}
+            onClick={() => emblaApi?.scrollNext()}
+            className="absolute top-1/2 right-0 z-10 flex size-10 -translate-y-[120%] items-center justify-center rounded-full border border-border bg-surface text-ink shadow-sm transition disabled:opacity-30"
+          >
+            <ChevronRight className="size-5" />
+          </button>
+        </>
+      )}
 
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="-ml-4 flex">
           {projects.map((project) => (
             <article
               key={project.id}
-              className="min-w-0 flex-[0_0_15.5%] pl-4"
+              className={cn("min-w-0 pl-4", slideClassName)}
             >
               <button
                 type="button"
@@ -81,14 +94,28 @@ export function ProjectCarousel({ projects, onSelect }: ProjectCarouselProps) {
                     src={project.image}
                     alt={project.imageAlt}
                     fill
-                    sizes="16vw"
+                    sizes={compact ? "30vw" : "16vw"}
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <h3 className="mt-2.5 font-serif text-[14px] text-ink">
+                <h3
+                  className={cn(
+                    "font-serif text-ink",
+                    compact
+                      ? "mt-1.5 truncate text-[10px]"
+                      : "mt-2.5 text-[14px]",
+                  )}
+                >
                   {project.title}
                 </h3>
-                <p className="mt-0.5 text-[12px] text-ink-muted">
+                <p
+                  className={cn(
+                    "text-ink-muted",
+                    compact
+                      ? "mt-0 truncate text-[8px]"
+                      : "mt-0.5 text-[12px]",
+                  )}
+                >
                   {project.category}
                 </p>
               </button>

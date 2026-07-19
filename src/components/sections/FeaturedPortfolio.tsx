@@ -12,7 +12,7 @@ type FeaturedPortfolioProps = {
 };
 
 export function FeaturedPortfolio({
-  title = "Featured Portfolio",
+  title = "Portfolio",
   showHeading = true,
 }: FeaturedPortfolioProps) {
   return (

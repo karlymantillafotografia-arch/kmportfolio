@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -25,6 +25,7 @@ export function ImageLightbox({
   const [index, setIndex] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const [origin, setOrigin] = useState({ x: 50, y: 50 });
+  const touchStartX = useRef<number | null>(null);
 
   const count = images.length;
   const cover = images[0];
@@ -69,6 +70,19 @@ export function ImageLightbox({
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (!zoomed) return;
     setOrigin(pointFromEvent(event));
+  };
+
+  // Deslizar en pantallas táctiles para cambiar de foto
+  const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLElement>) => {
+    if (touchStartX.current === null || zoomed || count < 2) return;
+    const delta = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(delta) < 50) return;
+    goTo(delta < 0 ? index + 1 : index - 1);
   };
 
   return (
@@ -150,6 +164,8 @@ export function ImageLightbox({
               transition={{ duration: 0.2 }}
               className="relative h-full w-full overflow-hidden"
               onClick={(event) => event.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
               <div
                 className={zoomed ? "absolute inset-0 cursor-zoom-out" : "absolute inset-0 cursor-zoom-in"}

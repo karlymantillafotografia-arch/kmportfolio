@@ -13,7 +13,7 @@ type PortfolioCarouselProps = {
 export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "trimSnaps",
+    loop: true,
   });
   const [selected, setSelected] = useState(0);
 
@@ -34,10 +34,11 @@ export function PortfolioCarousel({ items }: PortfolioCarouselProps) {
 
   return (
     <div>
+      {/* Separación con pl + -ml para que el gap se mantenga en el salto del loop */}
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex items-start gap-2.5">
+        <div className="-ml-2.5 flex items-start">
           {items.map((item) => (
-            <div key={item.slug} className="min-w-0 flex-[0_0_42%]">
+            <div key={item.slug} className="min-w-0 flex-[0_0_42%] pl-2.5">
               <PortfolioCard item={item} className="w-full" />
             </div>
           ))}

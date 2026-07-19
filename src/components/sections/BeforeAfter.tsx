@@ -6,6 +6,7 @@ import { PeekCarousel } from "@/components/ui/PeekCarousel";
 
 type BeforeAfterProps = {
   limit?: number;
+  /** Máximo de items en móvil; sin límite muestra todos. */
   mobileLimit?: number;
   title?: string;
   carousel?: boolean;
@@ -15,7 +16,7 @@ type BeforeAfterProps = {
 
 export function BeforeAfter({
   limit,
-  mobileLimit = 2,
+  mobileLimit,
   title = "Before & After",
   carousel = false,
   showHeading = true,
@@ -24,7 +25,9 @@ export function BeforeAfter({
   const desktopItems = limit
     ? beforeAfterItems.slice(0, limit)
     : beforeAfterItems;
-  const mobileItems = desktopItems.slice(0, mobileLimit);
+  const mobileItems = mobileLimit
+    ? desktopItems.slice(0, mobileLimit)
+    : desktopItems;
 
   return (
     <section

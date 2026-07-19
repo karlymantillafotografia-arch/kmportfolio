@@ -46,4 +46,22 @@ export const videos: VideoItem[] = [
       "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80",
     href: "#",
   },
+  {
+    id: "beauty-cleanup",
+    title: "Clean Beauty Retouching Basics",
+    description: "Fundamentals for flawless yet natural beauty images.",
+    duration: "05:41",
+    thumbnail:
+      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80",
+    href: "#",
+  },
+  {
+    id: "batch-lightroom",
+    title: "Batch Editing in Lightroom",
+    description: "Speed up volume editing without losing consistency.",
+    duration: "07:02",
+    thumbnail:
+      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+    href: "#",
+  },
 ];

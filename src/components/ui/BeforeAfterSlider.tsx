@@ -24,14 +24,19 @@ function CompareView({
   item,
   className,
   fit = "cover",
+  handleOnly = false,
 }: {
   item: BeforeAfterItem;
   className?: string;
   fit?: "cover" | "contain";
+  /** Solo la manija arrastra la barra; el resto de la imagen queda libre
+      para deslizar el carrusel que contiene la tarjeta. */
+  handleOnly?: boolean;
 }) {
   return (
     <ReactCompareSlider
       className={className}
+      onlyHandleDraggable={handleOnly}
       itemOne={
         <ReactCompareSliderImage
           src={item.before}
@@ -47,7 +52,13 @@ function CompareView({
         />
       }
       handle={
-        <div className="flex h-full items-center justify-center">
+        <div
+          className="flex h-full items-center justify-center"
+          // Evita que Embla capture el arrastre de la manija
+          onPointerDown={(event) => event.stopPropagation()}
+          onTouchStart={(event) => event.stopPropagation()}
+          onMouseDown={(event) => event.stopPropagation()}
+        >
           <div className="flex size-7 items-center justify-center rounded-full border border-border bg-surface shadow-sm">
             <span className="text-[9px] tracking-wide text-ink">↔</span>
           </div>
@@ -132,7 +143,11 @@ export function BeforeAfterSlider({
         className,
       )}
     >
-      <CompareView item={item} className="aspect-[4/3] w-full md:aspect-[5/4]" />
+      <CompareView
+        item={item}
+        handleOnly
+        className="aspect-[4/3] w-full md:aspect-[5/4]"
+      />
       <Badges />
       <button
         type="button"
@@ -153,11 +168,12 @@ export function BeforeAfterSlider({
   return (
     <>
       {showTitle ? (
-        /* Tarjeta estilo portafolio: imagen arriba y franja pastel con el título */
-        <article className="overflow-hidden rounded-md bg-bg-warm">
+        /* Tarjeta estilo portafolio: imagen arriba y franja pastel con el título.
+           Altura completa y título con alto fijo para que todas midan igual. */
+        <article className="flex h-full flex-col overflow-hidden rounded-md bg-bg-warm">
           {card}
-          <div className="px-4 py-3">
-            <h3 className="font-serif text-base leading-snug text-ink">
+          <div className="flex flex-1 items-center px-4 py-3">
+            <h3 className="line-clamp-2 min-h-[2.5em] content-center font-serif text-base leading-snug text-ink">
               {item.title}
             </h3>
           </div>
@@ -229,8 +245,8 @@ export function BeforeAfterSlider({
                   onClick={(event) => event.stopPropagation()}
                 >
                   <div
-                    className="relative max-w-full"
-                    style={{ aspectRatio: ratio, height: "100%" }}
+                    className="relative w-full max-w-full max-h-full md:h-full md:w-auto"
+                    style={{ aspectRatio: ratio }}
                   >
                     <div className="relative h-full w-full overflow-hidden rounded-lg">
                       <CompareView
@@ -250,7 +266,7 @@ export function BeforeAfterSlider({
                       <Info className="size-4" />
                     </button>
 
-                    {/* Globo de información a la derecha de la imagen */}
+                    {/* Móvil: globo sobre la imagen. Escritorio: a la derecha */}
                     <AnimatePresence>
                       {showInfo && (
                         <motion.div
@@ -258,10 +274,10 @@ export function BeforeAfterSlider({
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-0 left-full z-10 ml-5 max-h-full w-max max-w-[min(24rem,40vw)]"
+                          className="absolute inset-x-2 top-12 z-10 max-h-[calc(100%-4rem)] md:inset-x-auto md:top-0 md:left-full md:ml-5 md:max-h-full md:w-max md:max-w-[min(24rem,40vw)]"
                         >
-                          <span className="absolute top-4 -left-1.5 size-3 rotate-45 bg-[#57524c]/70" />
-                          <div className="max-h-full overflow-y-auto rounded-xl bg-[#57524c]/70 p-5 text-white backdrop-blur-sm">
+                          <span className="absolute top-4 -left-1.5 hidden size-3 rotate-45 bg-[#57524c]/70 md:block" />
+                          <div className="max-h-full overflow-y-auto rounded-xl bg-[#57524c]/70 p-4 text-white backdrop-blur-sm md:p-5">
                             <p className="text-center text-[10px] font-medium tracking-[0.18em] text-white/75 uppercase">
                               {current.title}
                             </p>

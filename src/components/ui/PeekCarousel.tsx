@@ -18,7 +18,7 @@ export function PeekCarousel({
   const slides = Children.toArray(children);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
-    containScroll: "trimSnaps",
+    loop: true,
   });
   const [selected, setSelected] = useState(0);
   const pageCount = Math.max(1, Math.ceil(slides.length / 2));
@@ -40,10 +40,11 @@ export function PeekCarousel({
 
   return (
     <div>
+      {/* Separación con pl + -ml para que el gap se mantenga en el salto del loop */}
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex items-stretch gap-2.5">
+        <div className="-ml-2.5 flex items-stretch">
           {slides.map((child, index) => (
-            <div key={index} className={cn("min-w-0", slideClassName)}>
+            <div key={index} className={cn("min-w-0 pl-2.5", slideClassName)}>
               {child}
             </div>
           ))}

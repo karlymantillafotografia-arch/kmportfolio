@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { VideosProcess } from "@/components/sections/VideosProcess";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 
@@ -17,10 +16,9 @@ export default function VideosPage() {
         title="Videos / Process"
         description="Short walkthroughs that show how polished results come together."
       />
-      <section className="px-5 py-10 md:px-8 md:py-14">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading title="Watch" className="mb-10" />
-          <VideosProcess showHeading={false} />
+      <section className="px-5 py-10 md:px-8 md:py-8">
+        <div className="mx-auto max-w-6xl">
+          <VideosProcess showHeading={false} columns={4} />
         </div>
       </section>
       <CtaBanner />

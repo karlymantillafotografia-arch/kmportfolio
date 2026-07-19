@@ -3,17 +3,20 @@ import { ArrowRight } from "lucide-react";
 import { featuredServiceIds, services } from "@/data/services";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/ui/ServiceCard";
+import { CardCarousel } from "@/components/ui/CardCarousel";
 
 type ServicesProps = {
   compact?: boolean;
   title?: string;
   showHeading?: boolean;
+  desktopCarousel?: boolean;
 };
 
 export function Services({
   compact = false,
   title = "Services",
   showHeading = true,
+  desktopCarousel = false,
 }: ServicesProps) {
   const mobileItems = compact
     ? services.filter((service) =>
@@ -30,17 +33,31 @@ export function Services({
           <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
         ) : null}
 
-        <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-6">
-          {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
+        {desktopCarousel ? (
+          <div className="hidden md:block">
+            <CardCarousel slideClassName="flex-[0_0_23%] lg:flex-[0_0_15.5%]">
+              {services.map((service) => (
+                <ServiceCard
+                  key={service.id}
+                  service={service}
+                  className="h-full"
+                />
+              ))}
+            </CardCarousel>
+          </div>
+        ) : (
+          <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-6">
+            {services.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+        )}
 
         <div
           className={
             compact
               ? "grid grid-cols-3 gap-2.5 md:hidden"
-              : "grid grid-cols-1 gap-2.5 sm:grid-cols-2 md:hidden"
+              : "grid grid-cols-2 gap-2.5 md:hidden"
           }
         >
           {mobileItems.map((service) => (

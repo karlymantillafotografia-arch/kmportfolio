@@ -13,7 +13,7 @@ export default function HomePage() {
       <Hero />
       <FeaturedPortfolio />
       <BeforeAfter carousel mobileLimit={4} />
-      <Services compact />
+      <Services compact desktopCarousel />
       <Reviews />
       <VideosAndConsulting />
       <CtaBanner />

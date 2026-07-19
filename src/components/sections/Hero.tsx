@@ -22,17 +22,17 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-[1.15fr_0.9fr] items-start gap-1 pl-5 pr-0 pt-0 pb-0 md:h-[min(52vh,500px)] md:grid-cols-2 md:items-stretch md:gap-8 md:px-8">
+      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-[1.15fr_0.9fr] items-start gap-1 pl-5 pr-0 pt-0 pb-0 md:min-h-[min(52vh,500px)] md:grid-cols-2 md:items-stretch md:gap-8 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="relative z-20 flex w-full max-w-lg flex-col justify-start pt-4 pb-1 pr-6 md:h-full md:max-w-lg md:justify-center md:py-0 md:pr-0 lg:max-w-[30rem]"
+          className="relative z-20 flex w-full max-w-lg flex-col justify-center py-4 pr-6 md:h-full md:max-w-lg md:py-5 md:pr-0 lg:max-w-[30rem]"
         >
-          <p className="font-script text-[1.3rem] leading-none text-script md:text-[1.85rem] lg:text-[2.1rem]">
+          <p className="font-script text-[1.3rem] leading-none text-script md:text-[clamp(1.4rem,2.3vw,2.1rem)]">
             {site.greeting}
           </p>
-          <h1 className="mt-0.5 font-serif text-[1.3rem] leading-[1.12] tracking-[-0.01em] text-ink md:mt-1.5 md:text-[2.55rem] lg:text-[2.95rem]">
+          <h1 className="mt-0.5 font-serif text-[1.3rem] leading-[1.12] tracking-[-0.01em] text-ink md:mt-1.5 md:text-[clamp(1.7rem,3.2vw,2.95rem)]">
             <span className="md:hidden">
               Professional Photo
               <br />
@@ -42,7 +42,7 @@ export function Hero() {
             </span>
             <span className="hidden md:inline">{site.tagline}</span>
           </h1>
-          <p className="mt-3 hidden max-w-md text-sm leading-relaxed text-ink-muted md:block md:text-[15px]">
+          <p className="mt-3 hidden max-w-md leading-relaxed text-ink-muted md:block md:text-[clamp(12px,1.2vw,15px)]">
             {site.description}
           </p>
 
@@ -75,7 +75,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.45 }}
-          className="relative z-10 -ml-10 h-[250px] w-[calc(100%+3.5rem)] translate-x-6 md:ml-0 md:h-full md:w-full md:translate-x-0 md:overflow-hidden"
+          className="relative z-10 -ml-10 h-[250px] w-[calc(100%+3.5rem)] translate-x-6 md:ml-0 md:h-full md:min-h-[320px] md:w-full md:translate-x-0 md:overflow-hidden"
         >
           <Image
             src={HERO_IMAGE}

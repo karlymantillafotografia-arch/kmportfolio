@@ -14,15 +14,16 @@ export default function BeforeAfterPage() {
   return (
     <PageShell>
       {/* Columna a pantalla completa: intro arriba, carrusel centrado y CTA abajo */}
-      <div className="md:flex md:min-h-[calc(100vh-10rem)] md:flex-col">
+      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
         <PageIntro
           title="Before & After"
           description="Drag the slider to compare original captures with finished retouching."
+          className="pt-5 md:pt-10"
         />
-        <div className="md:my-auto">
+        <div className="my-auto pt-8 md:pt-0">
           <BeforeAfter carousel showHeading={false} showTitles />
         </div>
-        <CtaBanner />
+        <CtaBanner mobileBoxed />
       </div>
     </PageShell>
   );
