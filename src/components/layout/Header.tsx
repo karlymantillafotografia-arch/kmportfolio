@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -43,11 +44,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b-0 bg-bg/95 backdrop-blur-md md:border-b md:border-border/50">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5 md:h-16 md:px-8">
-        <Link
-          href="/"
-          className="font-serif text-[1.65rem] tracking-tight text-ink md:text-[1.7rem]"
-        >
-          Karly
+        <Link href="/" aria-label="Karly — home" className="flex items-center">
+          <Image
+            src="/images/logo-km.png"
+            alt="KM logo"
+            width={40}
+            height={40}
+            priority
+            className="size-9 object-contain mix-blend-multiply md:size-10"
+          />
         </Link>
 
         <nav className="ml-auto hidden items-center gap-x-8 lg:flex xl:gap-x-9">

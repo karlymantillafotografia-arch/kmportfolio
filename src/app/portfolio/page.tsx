@@ -21,9 +21,13 @@ export default function PortfolioPage() {
           className="pt-5 md:pt-10"
         />
         <div className="my-auto pt-8 md:pt-0">
-          <FeaturedPortfolio title="Featured Work" showHeading={false} />
+          <FeaturedPortfolio
+            title="Featured Work"
+            showHeading={false}
+            mobileTwoRows
+          />
         </div>
-        <CtaBanner mobileBoxed />
+        <CtaBanner />
       </div>
     </PageShell>
   );

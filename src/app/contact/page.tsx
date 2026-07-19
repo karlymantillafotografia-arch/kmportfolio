@@ -15,27 +15,36 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell>
-      <PageIntro
-        title="Contact"
-        description="Ready to elevate your images? Reach out and let's start a project."
-      />
-      <section className="mx-auto max-w-xl px-5 py-10 text-center md:px-8 md:py-14">
-        <div className="flex flex-col items-center gap-4">
-          <Button href={site.upworkUrl} external className="w-full sm:w-auto">
-            <UpworkMark className="size-4" />
-            Hire me on Upwork
-          </Button>
-          <Button
-            href={site.social.email}
-            variant="secondary"
-            className="w-full sm:w-auto"
-          >
-            Email {site.email}
-          </Button>
-          <SocialLinks className="mt-6 items-center" withText />
+      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
+        <PageIntro
+          title="Contact"
+          description="Ready to elevate your images? Reach out and let's start a project."
+          className="pt-5 md:pt-10"
+        />
+        <div className="my-auto">
+          <section className="mx-auto max-w-xl px-5 py-5 text-center md:px-8 md:py-0">
+            <div className="flex flex-col items-center gap-4">
+              <Button
+                href={site.upworkUrl}
+                external
+                className="w-full sm:w-auto"
+              >
+                <UpworkMark className="size-4" />
+                Hire me on Upwork
+              </Button>
+              <Button
+                href={site.social.email}
+                variant="secondary"
+                className="w-full sm:w-auto"
+              >
+                Email {site.email}
+              </Button>
+              <SocialLinks className="mt-6 items-center" withText />
+            </div>
+          </section>
         </div>
-      </section>
-      <CtaBanner />
+        <CtaBanner />
+      </div>
     </PageShell>
   );
 }

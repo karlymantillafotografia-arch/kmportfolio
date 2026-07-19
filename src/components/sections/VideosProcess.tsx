@@ -21,7 +21,7 @@ export function VideosProcess({
   return (
     <section id="videos" className="scroll-mt-20">
       {showHeading ? (
-        <SectionHeading title={title} className="mb-5 md:mb-6" />
+        <SectionHeading title={title} href="/videos" className="my-4 md:my-6" />
       ) : null}
 
       {limit ? (

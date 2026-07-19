@@ -15,7 +15,17 @@ export function PeekCarousel({
   slideClassName = "flex-[0_0_42%]",
   dotsClassName = "my-3",
 }: PeekCarouselProps) {
-  const slides = Children.toArray(children);
+  const originals = Children.toArray(children);
+  // Con pocas tarjetas el loop de Embla se desactiva (no llenan el ancho);
+  // se repiten hasta tener suficientes para que siempre sea infinito.
+  const slides =
+    originals.length >= 5
+      ? originals
+      : Array.from(
+          { length: Math.ceil(5 / Math.max(1, originals.length)) },
+          () => originals,
+        ).flat();
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,

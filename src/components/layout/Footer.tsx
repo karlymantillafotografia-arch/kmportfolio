@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/site";
 import { UpworkMark } from "@/components/ui/UpworkMark";
@@ -21,8 +22,14 @@ export function Footer() {
     <footer className="border-t border-border/60 bg-bg">
       <div className="mx-auto flex max-w-6xl items-start justify-between gap-3 px-5 py-5 md:items-center md:px-8 md:py-5">
         <div className="min-w-0">
-          <Link href="/" className="font-serif text-lg text-ink md:text-xl">
-            {site.name}
+          <Link href="/" aria-label="Karly — home" className="inline-flex">
+            <Image
+              src="/images/logo-km.png"
+              alt="KM logo"
+              width={32}
+              height={32}
+              className="size-7 object-contain mix-blend-multiply md:size-8"
+            />
           </Link>
           <p className="mt-0.5 text-[10px] text-ink-muted md:mt-1 md:text-[11px]">
             © {year} {site.name}. All rights reserved.

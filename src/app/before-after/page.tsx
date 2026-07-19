@@ -21,9 +21,9 @@ export default function BeforeAfterPage() {
           className="pt-5 md:pt-10"
         />
         <div className="my-auto pt-8 md:pt-0">
-          <BeforeAfter carousel showHeading={false} showTitles />
+          <BeforeAfter carousel showHeading={false} showTitles mobileTwoRows />
         </div>
-        <CtaBanner mobileBoxed />
+        <CtaBanner />
       </div>
     </PageShell>
   );

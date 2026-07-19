@@ -12,16 +12,21 @@ export const metadata: Metadata = {
 export default function VideosPage() {
   return (
     <PageShell>
-      <PageIntro
-        title="Videos / Process"
-        description="Short walkthroughs that show how polished results come together."
-      />
-      <section className="px-5 py-10 md:px-8 md:py-8">
-        <div className="mx-auto max-w-6xl">
-          <VideosProcess showHeading={false} columns={4} />
+      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
+        <PageIntro
+          title="Videos / Process"
+          description="Short walkthroughs that show how polished results come together."
+          className="pt-5 md:pt-10"
+        />
+        <div className="my-auto">
+          <section className="px-5 py-5 md:px-8 md:py-0">
+            <div className="mx-auto max-w-6xl">
+              <VideosProcess showHeading={false} columns={4} />
+            </div>
+          </section>
         </div>
-      </section>
-      <CtaBanner />
+        <CtaBanner />
+      </div>
     </PageShell>
   );
 }

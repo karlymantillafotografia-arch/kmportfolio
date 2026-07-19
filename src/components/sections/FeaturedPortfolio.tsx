@@ -9,12 +9,19 @@ import { PortfolioCarousel } from "@/components/ui/PortfolioCarousel";
 type FeaturedPortfolioProps = {
   title?: string;
   showHeading?: boolean;
+  /** En móvil muestra el contenido repartido en dos carruseles apilados. */
+  mobileTwoRows?: boolean;
 };
 
 export function FeaturedPortfolio({
   title = "Portfolio",
   showHeading = true,
+  mobileTwoRows = false,
 }: FeaturedPortfolioProps) {
+  const half = Math.ceil(portfolioItems.length / 2);
+  const firstRow = portfolioItems.slice(0, half);
+  const secondRow = portfolioItems.slice(half);
+
   return (
     <section
       id="portfolio"
@@ -29,7 +36,8 @@ export function FeaturedPortfolio({
           <SectionHeading
             title={title}
             mobileTitle="Portfolio"
-            className="my-4 md:mb-6 md:mt-0"
+            href="/portfolio"
+            className="my-4 md:my-6"
           />
         )}
 
@@ -42,7 +50,14 @@ export function FeaturedPortfolio({
         </div>
 
         <div className="md:hidden">
-          <PortfolioCarousel items={portfolioItems} />
+          {mobileTwoRows && secondRow.length > 0 ? (
+            <div className="flex flex-col gap-1">
+              <PortfolioCarousel items={firstRow} />
+              <PortfolioCarousel items={secondRow} />
+            </div>
+          ) : (
+            <PortfolioCarousel items={portfolioItems} />
+          )}
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
       {/* Mobile: tarjeta pastel con lightbox, como la vista de escritorio */}
       <PortfolioCategoryMobile item={item} />
       <div className="md:hidden">
-        <CtaBanner mobileBoxed />
+        <CtaBanner />
       </div>
 
       {/* Desktop: mockup nuevo */}

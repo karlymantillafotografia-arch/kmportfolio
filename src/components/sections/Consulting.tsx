@@ -25,8 +25,9 @@ export function Consulting({
       {showHeading ? (
         <SectionHeading
           title="Consulting & Mentorship"
+          href="/consulting"
           className={cn(
-            "mb-5 md:mb-6",
+            "my-4 md:my-6",
             hideHeadingOnMobile && "hidden md:flex",
           )}
         />

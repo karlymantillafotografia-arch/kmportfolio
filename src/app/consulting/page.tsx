@@ -15,12 +15,13 @@ export const metadata: Metadata = {
 export default function ConsultingPage() {
   return (
     <PageShell>
-      <div className="md:flex md:min-h-[calc(100vh-10rem)] md:flex-col">
+      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
         <PageIntro
           title="Consulting & Mentorship"
           description="Level up your craft, workflow, and client business with guided support."
+          className="pt-5 md:pt-10"
         />
-        <div className="md:my-auto">
+        <div className="my-auto">
           <section className="px-5 py-5 md:px-8 md:py-0">
             <div className="mx-auto max-w-7xl">
               <Consulting

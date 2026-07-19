@@ -12,6 +12,8 @@ type BeforeAfterProps = {
   carousel?: boolean;
   showHeading?: boolean;
   showTitles?: boolean;
+  /** En móvil muestra el contenido repartido en dos carruseles apilados. */
+  mobileTwoRows?: boolean;
 };
 
 export function BeforeAfter({
@@ -21,6 +23,7 @@ export function BeforeAfter({
   carousel = false,
   showHeading = true,
   showTitles = false,
+  mobileTwoRows = false,
 }: BeforeAfterProps) {
   const desktopItems = limit
     ? beforeAfterItems.slice(0, limit)
@@ -36,7 +39,11 @@ export function BeforeAfter({
     >
       <div className="mx-auto max-w-6xl">
         {showHeading && (
-          <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
+          <SectionHeading
+            title={title}
+            href="/before-after"
+            className="my-4 md:my-6"
+          />
         )}
 
         {carousel ? (
@@ -66,16 +73,36 @@ export function BeforeAfter({
         )}
 
         <div className="sm:hidden">
-          <PeekCarousel>
-            {mobileItems.map((item) => (
-              <BeforeAfterSlider
-                key={item.id}
-                item={item}
-                items={mobileItems}
-                showTitle={showTitles}
-              />
-            ))}
-          </PeekCarousel>
+          {mobileTwoRows && mobileItems.length > 3 ? (
+            <div className="flex flex-col gap-1">
+              {[
+                mobileItems.slice(0, Math.ceil(mobileItems.length / 2)),
+                mobileItems.slice(Math.ceil(mobileItems.length / 2)),
+              ].map((row, rowIndex) => (
+                <PeekCarousel key={rowIndex}>
+                  {row.map((item) => (
+                    <BeforeAfterSlider
+                      key={item.id}
+                      item={item}
+                      items={mobileItems}
+                      showTitle={showTitles}
+                    />
+                  ))}
+                </PeekCarousel>
+              ))}
+            </div>
+          ) : (
+            <PeekCarousel>
+              {mobileItems.map((item) => (
+                <BeforeAfterSlider
+                  key={item.id}
+                  item={item}
+                  items={mobileItems}
+                  showTitle={showTitles}
+                />
+              ))}
+            </PeekCarousel>
+          )}
         </div>
       </div>
     </section>

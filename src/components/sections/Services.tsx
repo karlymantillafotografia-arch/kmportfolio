@@ -1,9 +1,8 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { featuredServiceIds, services } from "@/data/services";
+import { services } from "@/data/services";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { CardCarousel } from "@/components/ui/CardCarousel";
+import { PeekCarousel } from "@/components/ui/PeekCarousel";
 
 type ServicesProps = {
   compact?: boolean;
@@ -18,19 +17,15 @@ export function Services({
   showHeading = true,
   desktopCarousel = false,
 }: ServicesProps) {
-  const mobileItems = compact
-    ? services.filter((service) =>
-        featuredServiceIds.includes(
-          service.id as (typeof featuredServiceIds)[number],
-        ),
-      )
-    : services;
-
   return (
     <section id="services" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8 md:pt-0">
       <div className="mx-auto max-w-6xl">
         {showHeading ? (
-          <SectionHeading title={title} className="mb-3 mt-0 md:my-6" />
+          <SectionHeading
+            title={title}
+            href="/services"
+            className="my-4 md:my-6"
+          />
         ) : null}
 
         {desktopCarousel ? (
@@ -53,33 +48,28 @@ export function Services({
           </div>
         )}
 
-        <div
-          className={
-            compact
-              ? "grid grid-cols-3 gap-2.5 md:hidden"
-              : "grid grid-cols-2 gap-2.5 md:hidden"
-          }
-        >
-          {mobileItems.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-              compact={compact}
-            />
-          ))}
-        </div>
-
         {compact ? (
-          <div className="mt-2 mb-5 flex justify-center md:hidden">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-1 text-xs tracking-wide text-ink transition-opacity hover:opacity-60"
-            >
-              View all services
-              <ArrowRight className="size-3.5" aria-hidden />
-            </Link>
+          /* Home móvil: carrusel infinito con todos los servicios */
+          <div className="md:hidden">
+            <PeekCarousel slideClassName="flex-[0_0_31%]" dotsClassName="mt-1.5 mb-2">
+              {services.map((service) => (
+                <ServiceCard
+                  key={service.id}
+                  service={service}
+                  compact
+                  className="h-full w-full"
+                />
+              ))}
+            </PeekCarousel>
           </div>
-        ) : null}
+        ) : (
+          <div className="grid grid-cols-2 gap-2.5 md:hidden">
+            {services.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+        )}
+
       </div>
     </section>
   );

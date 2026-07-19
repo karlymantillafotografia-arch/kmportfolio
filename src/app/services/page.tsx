@@ -13,12 +13,13 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <PageShell>
-      <div className="md:flex md:min-h-[calc(100vh-10rem)] md:flex-col">
+      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
         <PageIntro
           title="Services"
           description="End-to-end image finishing for brands, photographers, and growing creative businesses."
+          className="pt-5 md:pt-10"
         />
-        <div className="md:my-auto">
+        <div className="my-auto py-5 md:py-0">
           <Services showHeading={false} />
         </div>
         <CtaBanner />
