@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/site";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { UpworkMark } from "@/components/ui/UpworkMark";
 import {
   InstagramIcon,
@@ -17,6 +20,7 @@ const footerLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { t } = useLocale();
 
   return (
     <footer className="border-t border-border/60 bg-bg">
@@ -32,7 +36,7 @@ export function Footer() {
             />
           </Link>
           <p className="mt-0.5 text-[10px] text-ink-muted md:mt-1 md:text-[11px]">
-            © {year} {site.name}. All rights reserved.
+            © {year} {site.name}. {t.footer.rights}
           </p>
         </div>
 

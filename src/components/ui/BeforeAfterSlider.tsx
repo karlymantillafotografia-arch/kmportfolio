@@ -9,6 +9,7 @@ import {
 import { ChevronLeft, ChevronRight, Info, Maximize2, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { BeforeAfterItem } from "@/data/beforeAfter";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 
 type BeforeAfterSliderProps = {
@@ -82,6 +83,7 @@ export function BeforeAfterSlider({
   showTitle = false,
   className,
 }: BeforeAfterSliderProps) {
+  const { t } = useLocale();
   const [open, setOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -194,7 +196,7 @@ export function BeforeAfterSlider({
               >
                 <button
                   type="button"
-                  aria-label="Close comparison"
+                  aria-label={t.beforeAfterUi.close}
                   className="absolute top-5 right-5 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
                   onClick={() => setOpen(false)}
                 >
@@ -205,7 +207,7 @@ export function BeforeAfterSlider({
                   <>
                     <button
                       type="button"
-                      aria-label="Previous comparison"
+                      aria-label={t.beforeAfterUi.prev}
                       className="absolute left-4 z-10 flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 md:left-6"
                       onClick={(event) => {
                         event.stopPropagation();
@@ -216,7 +218,7 @@ export function BeforeAfterSlider({
                     </button>
                     <button
                       type="button"
-                      aria-label="Next comparison"
+                      aria-label={t.beforeAfterUi.next}
                       className="absolute right-4 z-10 flex size-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 md:right-6"
                       onClick={(event) => {
                         event.stopPropagation();
@@ -254,7 +256,7 @@ export function BeforeAfterSlider({
 
                     <button
                       type="button"
-                      aria-label="Show retouching details"
+                      aria-label={t.beforeAfterUi.showInfo}
                       onClick={() => setShowInfo((value) => !value)}
                       className="absolute top-3 right-3 z-20 flex size-8 cursor-pointer items-center justify-center rounded-full bg-surface/85 text-ink shadow-sm backdrop-blur-sm transition hover:bg-surface"
                     >
@@ -278,7 +280,7 @@ export function BeforeAfterSlider({
                             </p>
                             <h3 className="mt-1 text-center font-serif text-lg font-semibold md:text-2xl lg:text-lg">
                               {current.editsHeading ??
-                                "Ediciones realizadas en la imagen"}
+                                t.beforeAfterUi.editsHeading}
                             </h3>
                             <ul className="mt-3 list-disc space-y-0.5 pl-5 text-left text-[13px] leading-snug text-white/95 marker:text-white/60 md:mt-4 md:space-y-1 md:pl-6 md:text-base md:leading-relaxed lg:mt-3 lg:space-y-0.5 lg:pl-5 lg:text-[13px] lg:leading-snug">
                               {current.edits.map((edit) => (

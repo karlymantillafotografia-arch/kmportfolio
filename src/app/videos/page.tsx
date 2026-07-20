@@ -1,20 +1,19 @@
-import type { Metadata } from "next";
+"use client";
+
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { VideosProcess } from "@/components/sections/VideosProcess";
-
-export const metadata: Metadata = {
-  title: "Videos",
-  description: "Process videos and workflow walkthroughs for photo retouching.",
-};
+import { useLocale } from "@/i18n/LocaleProvider";
 
 export default function VideosPage() {
+  const { t } = useLocale();
+
   return (
     <PageShell>
       <div className="flex flex-1 flex-col">
         <PageIntro
-          title="Videos / Process"
-          description="Short walkthroughs that show how polished results come together."
+          title={t.pages.videosTitle}
+          description={t.pages.videosDesc}
         />
         <div className="my-auto pt-2">
           <section className="px-5 md:px-8 md:py-0">

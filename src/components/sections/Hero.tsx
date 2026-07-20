@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { site } from "@/data/site";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { SealBadge } from "@/components/ui/SealBadge";
@@ -11,6 +12,9 @@ import { UpworkMark } from "@/components/ui/UpworkMark";
 const HERO_IMAGE = "/images/hero-v5.png";
 
 export function Hero() {
+  const { t } = useLocale();
+  const mobileLines = t.hero.taglineMobile.split("\n");
+
   return (
     <section className="relative overflow-x-clip">
       <div
@@ -32,20 +36,21 @@ export function Hero() {
           className="relative z-20 flex w-full min-w-0 max-w-lg flex-col justify-center py-4 pr-6 md:max-w-none md:justify-center md:py-0 md:pr-10 lg:h-full lg:max-w-[30rem] lg:py-5 lg:pr-0"
         >
           <p className="font-script text-[1.3rem] leading-none text-script md:text-[2.15rem] lg:text-[clamp(1.4rem,2.3vw,2.1rem)]">
-            {site.greeting}
+            {t.hero.greeting}
           </p>
           <h1 className="mt-0.5 font-serif text-[1.3rem] leading-[1.12] tracking-[-0.01em] text-ink md:mt-2 md:text-[2.25rem] md:leading-[1.12] lg:mt-1.5 lg:text-[clamp(1.7rem,3.2vw,2.95rem)]">
             <span className="lg:hidden">
-              Professional Photo
-              <br />
-              Retouching & Image
-              <br />
-              Editing
+              {mobileLines.map((line, index) => (
+                <span key={line}>
+                  {index > 0 ? <br /> : null}
+                  {line}
+                </span>
+              ))}
             </span>
-            <span className="hidden lg:inline">{site.tagline}</span>
+            <span className="hidden lg:inline">{t.hero.tagline}</span>
           </h1>
           <p className="mt-3 hidden max-w-md leading-relaxed text-ink-muted lg:block lg:text-[clamp(12px,1.2vw,15px)]">
-            {site.description}
+            {t.hero.description}
           </p>
 
           <div className="mt-2 flex w-fit flex-col gap-1 md:mt-5 md:gap-2 lg:mt-5 lg:w-auto lg:flex-row lg:items-center lg:gap-2.5">
@@ -55,7 +60,7 @@ export function Hero() {
               className="h-6 w-auto px-2.5 py-0 text-[9px] leading-none md:h-10 md:px-5 md:text-[13px] lg:h-auto lg:px-4 lg:py-2.5 lg:text-[13px]"
             >
               <UpworkMark className="size-2.5 md:size-4 lg:size-3.5" />
-              Hire me on Upwork
+              {t.hero.hire}
             </Button>
             <Button
               href="/portfolio"
@@ -63,7 +68,7 @@ export function Hero() {
               showArrow
               className="h-6 w-auto border-ink/80 bg-[#f3eee8] px-2.5 py-0 text-[9px] leading-none hover:bg-[#f3eee8] hover:text-ink md:h-10 md:px-5 md:text-[13px] lg:h-auto lg:border-ink lg:bg-transparent lg:px-4 lg:py-2.5 lg:text-[13px] lg:hover:bg-ink lg:hover:text-bg [&_svg]:size-2.5 md:[&_svg]:size-4 lg:[&_svg]:size-3.5"
             >
-              View Portfolio
+              {t.hero.portfolio}
             </Button>
           </div>
 
@@ -83,7 +88,7 @@ export function Hero() {
         >
           <Image
             src={HERO_IMAGE}
-            alt="Karly — professional photo retoucher"
+            alt={t.hero.imageAlt}
             fill
             priority
             sizes="(max-width: 1023px) 60vw, 48vw"

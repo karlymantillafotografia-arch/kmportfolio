@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { ServiceItem } from "@/data/services";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 
 const icons = {
@@ -45,6 +46,7 @@ export function ServiceCard({
   className,
   compact = false,
 }: ServiceCardProps) {
+  const { t } = useLocale();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const Icon = icons[service.icon];
@@ -137,7 +139,7 @@ export function ServiceCard({
                   />
                 </div>
                 <p className="text-[10px] font-medium tracking-[0.22em] text-ink-muted uppercase">
-                  Service
+                  {t.serviceCard.service}
                 </p>
               </div>
 
@@ -149,7 +151,7 @@ export function ServiceCard({
               </p>
 
               <p className="mt-7 text-[11px] font-medium tracking-[0.18em] text-ink-muted uppercase">
-                What&apos;s included
+                {t.serviceCard.included}
               </p>
               <ul className="mt-3 grid gap-x-5 gap-y-2 lg:grid-cols-2">
                 {service.includes.map((item) => (
@@ -168,7 +170,7 @@ export function ServiceCard({
               </ul>
 
               <p className="mt-7 text-[11px] font-medium tracking-[0.18em] text-ink-muted uppercase">
-                How it works
+                {t.serviceCard.how}
               </p>
               <ol className="mt-3 space-y-2.5">
                 {service.process.map((step, stepIndex) => (
@@ -189,14 +191,14 @@ export function ServiceCard({
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[12px] tracking-wide text-bg transition-opacity hover:opacity-85"
                 >
-                  Start a Project
+                  {t.serviceCard.start}
                   <ArrowRight className="size-3.5" aria-hidden />
                 </Link>
                 <Link
                   href="/portfolio"
                   className="text-[12px] tracking-wide text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
-                  See related work
+                  {t.serviceCard.related}
                 </Link>
               </div>
             </div>

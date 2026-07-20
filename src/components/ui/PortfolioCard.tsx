@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { PortfolioItem } from "@/data/portfolio";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 
 type PortfolioCardProps = {
@@ -10,6 +13,8 @@ type PortfolioCardProps = {
 };
 
 export function PortfolioCard({ item, className }: PortfolioCardProps) {
+  const { t } = useLocale();
+
   return (
     <article
       className={cn(
@@ -37,9 +42,9 @@ export function PortfolioCard({ item, className }: PortfolioCardProps) {
         <Link
           href={`/portfolio/${item.slug}`}
           className="inline-flex w-fit items-center gap-1 text-[10px] leading-none tracking-[0.12em] text-ink-muted uppercase transition-colors hover:text-ink"
-          aria-label={`View work: ${item.title}`}
+          aria-label={`${t.portfolioUi.viewWork}: ${item.title}`}
         >
-          <span className="hidden md:inline">View Work</span>
+          <span className="hidden md:inline">{t.portfolioUi.viewWork}</span>
           <ArrowRight
             className="size-3.5 text-ink md:size-3 md:text-ink-muted"
             aria-hidden

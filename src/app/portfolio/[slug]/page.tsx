@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPortfolioBySlug, portfolioItems } from "@/data/portfolio";
 import { PageShell } from "@/components/layout/PageShell";
-import { PortfolioCategoryDesktop } from "@/components/sections/PortfolioCategoryDesktop";
-import { PortfolioCategoryMobile } from "@/components/sections/PortfolioCategoryMobile";
+import { LocalizedPortfolioCategory } from "@/components/sections/LocalizedPortfolioCategory";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -32,11 +31,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      {/* Mobile: tarjeta pastel con lightbox, como la vista de escritorio */}
-      <PortfolioCategoryMobile item={item} />
-
-      {/* Desktop: mockup nuevo */}
-      <PortfolioCategoryDesktop item={item} />
+      <LocalizedPortfolioCategory slug={slug} />
     </PageShell>
   );
 }

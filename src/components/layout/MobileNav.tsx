@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { NAV_ITEMS } from "@/lib/constants";
+import { getNavItems } from "@/i18n/localize";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 
 type MobileNavProps = {
@@ -12,6 +13,8 @@ type MobileNavProps = {
 
 export function MobileNav({ onClose }: MobileNavProps) {
   const pathname = usePathname();
+  const { locale, t } = useLocale();
+  const navItems = getNavItems(locale);
 
   return (
     <motion.div
@@ -22,10 +25,9 @@ export function MobileNav({ onClose }: MobileNavProps) {
       transition={{ duration: 0.2 }}
       className="fixed inset-0 top-14 z-50 md:top-16 lg:hidden"
     >
-      {/* Capa oscura sobre la página; no desplaza el contenido */}
       <button
         type="button"
-        aria-label="Close menu"
+        aria-label={t.common.closeMenu}
         className="absolute inset-0 bg-black/40"
         onClick={onClose}
       />
@@ -38,7 +40,7 @@ export function MobileNav({ onClose }: MobileNavProps) {
         className="relative max-h-[calc(100dvh-3.5rem)] overflow-y-auto border-t border-border bg-bg px-5 py-6 shadow-lg md:max-h-[calc(100dvh-4rem)]"
       >
         <nav className="flex flex-col gap-1">
-          {NAV_ITEMS.map((item, index) => {
+          {navItems.map((item, index) => {
             const active =
               item.href === "/"
                 ? pathname === "/"

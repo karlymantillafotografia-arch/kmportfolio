@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useMemo } from "react";
 import { Star } from "lucide-react";
-import { reviews, type Review } from "@/data/reviews";
+import type { Review } from "@/data/reviews";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CardCarousel } from "@/components/ui/CardCarousel";
 import { PeekCarousel } from "@/components/ui/PeekCarousel";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { getReviews } from "@/i18n/localize";
 
 function ReviewCard({ review }: { review: Review }) {
   return (
@@ -44,16 +49,19 @@ function ReviewCard({ review }: { review: Review }) {
   );
 }
 
-export function Reviews({ title = "Reviews" }: { title?: string }) {
+export function Reviews({ title }: { title?: string }) {
+  const { locale, t } = useLocale();
+  const items = useMemo(() => getReviews(locale), [locale]);
+  const heading = title ?? t.sections.reviews;
+
   return (
     <section id="reviews" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading title={title} />
+        <SectionHeading title={heading} />
 
-        {/* Escritorio: carrusel ancho. Tablet y móvil: peek más compacto */}
         <div className="hidden lg:block">
           <CardCarousel slideClassName="flex-[0_0_30.5%]">
-            {reviews.map((review) => (
+            {items.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </CardCarousel>
@@ -61,7 +69,7 @@ export function Reviews({ title = "Reviews" }: { title?: string }) {
 
         <div className="lg:hidden">
           <PeekCarousel slideClassName="flex-[0_0_62%] md:flex-[0_0_38%]">
-            {reviews.map((review) => (
+            {items.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </PeekCarousel>

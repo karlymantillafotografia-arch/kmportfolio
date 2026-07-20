@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 
 type SealBadgeProps = {
@@ -5,6 +8,9 @@ type SealBadgeProps = {
 };
 
 export function SealBadge({ className }: SealBadgeProps) {
+  const { t } = useLocale();
+  const sealText = `${t.seal} · `;
+
   return (
     <div
       className={cn(
@@ -25,7 +31,7 @@ export function SealBadge({ className }: SealBadgeProps) {
           style={{ fontSize: "9px", letterSpacing: "2px" }}
         >
           <textPath href="#seal-circle" startOffset="0%">
-            QUALITY · PRECISION · CREATIVITY ·
+            {sealText}
           </textPath>
         </text>
         <text

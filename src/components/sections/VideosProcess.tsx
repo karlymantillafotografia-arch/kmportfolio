@@ -1,7 +1,11 @@
-import { videos } from "@/data/videos";
+"use client";
+
+import { useMemo } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { VideoCard } from "@/components/ui/VideoCard";
 import { PeekCarousel } from "@/components/ui/PeekCarousel";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { getVideos } from "@/i18n/localize";
 
 type VideosProcessProps = {
   limit?: number;
@@ -12,16 +16,19 @@ type VideosProcessProps = {
 
 export function VideosProcess({
   limit,
-  title = "Videos / Process",
+  title,
   showHeading = true,
   columns = 3,
 }: VideosProcessProps) {
-  const items = limit ? videos.slice(0, limit) : videos;
+  const { locale, t } = useLocale();
+  const all = useMemo(() => getVideos(locale), [locale]);
+  const items = limit ? all.slice(0, limit) : all;
+  const heading = title ?? t.sections.videos;
 
   return (
     <section id="videos" className="scroll-mt-20">
       {showHeading ? (
-        <SectionHeading title={title} href="/videos" />
+        <SectionHeading title={heading} href="/videos" />
       ) : null}
 
       {limit ? (

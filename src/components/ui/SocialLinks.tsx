@@ -1,4 +1,7 @@
+"use client";
+
 import { site } from "@/data/site";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { cn } from "@/lib/cn";
 import {
   InstagramIcon,
@@ -35,11 +38,13 @@ export function SocialLinks({
   showLabel = false,
   withText = false,
 }: SocialLinksProps) {
+  const { t } = useLocale();
+
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
       {showLabel ? (
         <p className="text-[11px] tracking-wide text-ink-muted">
-          Let&apos;s connect
+          {t.hero.connect}
         </p>
       ) : null}
       <ul className="flex items-center gap-3">

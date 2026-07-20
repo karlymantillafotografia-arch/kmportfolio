@@ -6,6 +6,7 @@ import type { PortfolioItem, PortfolioProject } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
 import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { ProjectCarousel } from "@/components/ui/ProjectCarousel";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type PortfolioCategoryMobileProps = {
   item: PortfolioItem;
@@ -29,6 +30,7 @@ function galleryFor(project: PortfolioProject, all: PortfolioProject[]) {
 }
 
 export function PortfolioCategoryMobile({ item }: PortfolioCategoryMobileProps) {
+  const { t } = useLocale();
   const { featured, projects } = item;
 
   const allProjects = useMemo<PortfolioProject[]>(
@@ -102,7 +104,7 @@ export function PortfolioCategoryMobile({ item }: PortfolioCategoryMobileProps) 
           className="px-4 py-4"
         >
           <p className="text-[8px] font-medium tracking-[0.18em] text-ink-muted uppercase">
-            Featured Project
+            {t.portfolioUi.featured}
           </p>
           <h2 className="mt-1 font-serif text-base text-ink">
             {selected.title}
@@ -112,17 +114,17 @@ export function PortfolioCategoryMobile({ item }: PortfolioCategoryMobileProps) 
           </p>
           <dl className="mt-3 space-y-1.5 border-t border-border/80 pt-3 text-[10px]">
             <div className="grid grid-cols-[5.5rem_1fr] gap-2">
-              <dt className="text-ink-muted">Category</dt>
+              <dt className="text-ink-muted">{t.portfolioUi.category}</dt>
               <dd className="text-ink">{selected.category}</dd>
             </div>
             <div className="grid grid-cols-[5.5rem_1fr] gap-2">
-              <dt className="text-ink-muted">Retouching</dt>
+              <dt className="text-ink-muted">{t.portfolioUi.retouching}</dt>
               <dd className="text-ink">
                 {selected.retouching ?? featured.retouching}
               </dd>
             </div>
             <div className="grid grid-cols-[5.5rem_1fr] gap-2">
-              <dt className="text-ink-muted">Deliverables</dt>
+              <dt className="text-ink-muted">{t.portfolioUi.deliverables}</dt>
               <dd className="text-ink">
                 {selected.deliverables ?? FALLBACK_DELIVERABLES}
               </dd>
@@ -131,7 +133,6 @@ export function PortfolioCategoryMobile({ item }: PortfolioCategoryMobileProps) 
         </motion.div>
       </div>
 
-      {/* Carrusel compacto con los demás proyectos de la categoría */}
       <div className="mt-4">
         <ProjectCarousel
           projects={carouselProjects}
@@ -147,10 +148,10 @@ export function PortfolioCategoryMobile({ item }: PortfolioCategoryMobileProps) 
           variant="secondary"
           className="px-3 py-1.5 text-[11px]"
         >
-          Back to Portfolio
+          {t.portfolioUi.back}
         </Button>
         <Button href="/contact" showArrow className="px-3 py-1.5 text-[11px]">
-          Start a Project
+          {t.portfolioUi.start}
         </Button>
       </div>
     </section>

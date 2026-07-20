@@ -7,6 +7,7 @@ import type { PortfolioItem, PortfolioProject } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
 import { ImageLightbox } from "@/components/ui/ImageLightbox";
 import { ProjectCarousel } from "@/components/ui/ProjectCarousel";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type PortfolioCategoryDesktopProps = {
   item: PortfolioItem;
@@ -37,6 +38,7 @@ function galleryFor(project: PortfolioProject, all: PortfolioProject[]) {
 export function PortfolioCategoryDesktop({
   item,
 }: PortfolioCategoryDesktopProps) {
+  const { t } = useLocale();
   const { featured, projects, cta } = item;
 
   const allProjects = useMemo<PortfolioProject[]>(
@@ -116,7 +118,7 @@ export function PortfolioCategoryDesktop({
             className="flex flex-col justify-center px-8 py-6 lg:px-10 lg:py-7"
           >
             <p className="text-[10px] font-medium tracking-[0.18em] text-ink-muted uppercase">
-              Featured Project
+              {t.portfolioUi.featured}
             </p>
             <h2 className="mt-1.5 font-serif text-xl text-ink lg:text-2xl">
               {selected.title}
@@ -126,17 +128,17 @@ export function PortfolioCategoryDesktop({
             </p>
             <dl className="mt-4 space-y-2 border-t border-border/80 pt-4 text-[12px]">
               <div className="grid grid-cols-[7rem_1fr] gap-3">
-                <dt className="text-ink-muted">Category</dt>
+                <dt className="text-ink-muted">{t.portfolioUi.category}</dt>
                 <dd className="text-ink">{selected.category}</dd>
               </div>
               <div className="grid grid-cols-[7rem_1fr] gap-3">
-                <dt className="text-ink-muted">Retouching</dt>
+                <dt className="text-ink-muted">{t.portfolioUi.retouching}</dt>
                 <dd className="text-ink">
                   {selected.retouching ?? featured.retouching}
                 </dd>
               </div>
               <div className="grid grid-cols-[7rem_1fr] gap-3">
-                <dt className="text-ink-muted">Deliverables</dt>
+                <dt className="text-ink-muted">{t.portfolioUi.deliverables}</dt>
                 <dd className="text-ink">
                   {selected.deliverables ?? FALLBACK_DELIVERABLES}
                 </dd>
@@ -166,7 +168,7 @@ export function PortfolioCategoryDesktop({
             <p className="mt-0.5 text-[12px] text-ink-muted">{cta.body}</p>
           </div>
           <Button href="/contact" showArrow className="shrink-0">
-            Start a Project
+            {t.portfolioUi.start}
           </Button>
         </div>
       </section>

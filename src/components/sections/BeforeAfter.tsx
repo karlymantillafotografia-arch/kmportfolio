@@ -1,36 +1,39 @@
-import { beforeAfterItems } from "@/data/beforeAfter";
+"use client";
+
+import { useMemo } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 import { CardCarousel } from "@/components/ui/CardCarousel";
 import { PeekCarousel } from "@/components/ui/PeekCarousel";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { getBeforeAfterItems } from "@/i18n/localize";
 
 type BeforeAfterProps = {
   limit?: number;
-  /** Máximo de items en móvil; sin límite muestra todos. */
   mobileLimit?: number;
   title?: string;
   carousel?: boolean;
   showHeading?: boolean;
   showTitles?: boolean;
-  /** En móvil muestra el contenido repartido en dos carruseles apilados. */
   mobileTwoRows?: boolean;
 };
 
 export function BeforeAfter({
   limit,
   mobileLimit,
-  title = "Before & After",
+  title,
   carousel = false,
   showHeading = true,
   showTitles = false,
   mobileTwoRows = false,
 }: BeforeAfterProps) {
-  const desktopItems = limit
-    ? beforeAfterItems.slice(0, limit)
-    : beforeAfterItems;
+  const { locale, t } = useLocale();
+  const allItems = useMemo(() => getBeforeAfterItems(locale), [locale]);
+  const desktopItems = limit ? allItems.slice(0, limit) : allItems;
   const mobileItems = mobileLimit
     ? desktopItems.slice(0, mobileLimit)
     : desktopItems;
+  const heading = title ?? t.sections.beforeAfter;
 
   return (
     <section
@@ -39,13 +42,9 @@ export function BeforeAfter({
     >
       <div className="mx-auto max-w-6xl">
         {showHeading && (
-          <SectionHeading
-            title={title}
-            href="/before-after"
-          />
+          <SectionHeading title={heading} href="/before-after" />
         )}
 
-        {/* Escritorio (lg+): carrusel/grid ancho. Móvil y tablet: peek tipo celular */}
         {carousel ? (
           <div className="hidden lg:block">
             <CardCarousel>
