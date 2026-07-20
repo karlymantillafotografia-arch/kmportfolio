@@ -37,6 +37,31 @@ export const metadata: Metadata = {
   },
   description:
     "High-end photo retouching and image editing for portraits, fashion, and product photography.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "/favicon-light.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-icon-light.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/apple-icon-dark.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({
