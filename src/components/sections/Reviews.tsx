@@ -48,7 +48,7 @@ export function Reviews({ title = "Reviews" }: { title?: string }) {
   return (
     <section id="reviews" className="scroll-mt-20 px-5 pt-0 pb-0 md:px-8">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading title={title} href="/contact" />
+        <SectionHeading title={title} />
 
         {/* Escritorio: carrusel ancho. Tablet y móvil: peek más compacto */}
         <div className="hidden lg:block">

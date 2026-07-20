@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPortfolioBySlug, portfolioItems } from "@/data/portfolio";
 import { PageShell } from "@/components/layout/PageShell";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 import { PortfolioCategoryDesktop } from "@/components/sections/PortfolioCategoryDesktop";
 import { PortfolioCategoryMobile } from "@/components/sections/PortfolioCategoryMobile";
 
@@ -35,9 +34,6 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
     <PageShell>
       {/* Mobile: tarjeta pastel con lightbox, como la vista de escritorio */}
       <PortfolioCategoryMobile item={item} />
-      <div className="md:hidden">
-        <CtaBanner />
-      </div>
 
       {/* Desktop: mockup nuevo */}
       <PortfolioCategoryDesktop item={item} />

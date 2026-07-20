@@ -33,4 +33,26 @@ export const site = {
       "Personalized Guidance",
     ],
   },
+  about: {
+    title: "About Me",
+    intro:
+      "I'm Karly — a professional photo retoucher focused on clean, natural, delivery-ready imagery.",
+    body: [
+      "I specialize in high-end retouching for portraits, fashion, and product photography. My approach balances polish with authenticity, so every image feels elevated without looking overdone.",
+      "Whether you need a single hero shot or a full batch workflow, I work with clear communication, consistent quality, and deadlines you can trust.",
+    ],
+    highlights: [
+      "Portrait & beauty retouching",
+      "Fashion & editorial finishing",
+      "Product & commercial cleanup",
+      "Consistent batch delivery",
+    ],
+    tools: [
+      { short: "Ps", name: "Photoshop" },
+      { short: "Lr", name: "Lightroom" },
+      { short: "Ai", name: "Illustrator" },
+      { short: "Cr", name: "Camera Raw" },
+      { short: "AI", name: "AI Tools" },
+    ],
+  },
 } as const;

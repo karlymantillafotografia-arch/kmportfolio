@@ -3,7 +3,6 @@ import { Mail } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Consulting } from "@/components/sections/Consulting";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -15,12 +14,12 @@ export const metadata: Metadata = {
 export default function ConsultingPage() {
   return (
     <PageShell>
-      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
+      <div className="flex flex-1 flex-col">
         <PageIntro
           title="Consulting & Mentorship"
           description="Level up your craft, workflow, and client business with guided support."
         />
-        <div className="pt-2 md:my-auto">
+        <div className="my-auto pt-2">
           <section className="px-5 md:px-8 md:py-0">
             <div className="mx-auto max-w-7xl">
               <Consulting
@@ -41,7 +40,6 @@ export default function ConsultingPage() {
             </div>
           </section>
         </div>
-        <CtaBanner />
       </div>
     </PageShell>
   );

@@ -12,7 +12,7 @@ export function PageShell({ children }: PageShellProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="flex-1"
+      className="flex flex-1 flex-col"
     >
       {children}
     </motion.div>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Services } from "@/components/sections/Services";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -13,15 +12,14 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <PageShell>
-      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
+      <div className="flex flex-1 flex-col">
         <PageIntro
           title="Services"
           description="End-to-end image finishing for brands, photographers, and growing creative businesses."
         />
-        <div className="pt-2 md:my-auto md:py-0">
+        <div className="my-auto pt-2 md:py-0">
           <Services showHeading={false} />
         </div>
-        <CtaBanner />
       </div>
     </PageShell>
   );

@@ -5,7 +5,6 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { Button } from "@/components/ui/Button";
 import { SocialLinks } from "@/components/ui/SocialLinks";
 import { UpworkMark } from "@/components/ui/UpworkMark";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -15,12 +14,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell>
-      <div className="flex min-h-[calc(100dvh-10rem)] flex-col">
+      <div className="flex flex-1 flex-col">
         <PageIntro
           title="Contact"
           description="Ready to elevate your images? Reach out and let's start a project."
         />
-        <div className="pt-2 md:my-auto">
+        <div className="my-auto pt-2">
           <section className="mx-auto max-w-xl px-5 text-center md:px-8 md:py-0">
             <div className="flex flex-col items-center gap-4">
               <Button
@@ -42,7 +41,6 @@ export default function ContactPage() {
             </div>
           </section>
         </div>
-        <CtaBanner />
       </div>
     </PageShell>
   );
