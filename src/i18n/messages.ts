@@ -20,10 +20,10 @@ export const messages = {
     },
     hero: {
       greeting: "Hi, I'm Karly",
-      tagline: "Professional Photo Retouching & Image Editing",
-      taglineMobile: "Professional Photo\nRetouching & Image\nEditing",
+      tagline: "Professional Photo Retouching & Visual Editing",
+      taglineMobile: "Professional Photo\nRetouching & Visual\nEditing",
       description:
-        "High-end retouching for portraits, fashion, and product imagery — clean, natural, and delivery-ready.",
+        "High-quality retouching to elevate your images.",
       hire: "Hire me on Upwork",
       portfolio: "View Portfolio",
       connect: "Let's connect",
@@ -64,21 +64,24 @@ export const messages = {
       consultingDesc:
         "Level up your craft, workflow, and client business with guided support.",
       aboutTitle: "About Me",
-      aboutIntro:
-        "I'm Karly — a professional photo retoucher focused on clean, natural, delivery-ready imagery.",
+      aboutIntro: "",
       contactTitle: "Contact",
       contactDesc:
         "Ready to elevate your images? Reach out and let's start a project.",
     },
     about: {
       body1:
-        "I specialize in high-end retouching for portraits, fashion, and product photography. My approach balances polish with authenticity, so every image feels elevated without looking overdone.",
+        "I'm Karly, a visual editor and photo retoucher with over 6 years of experience working on commercial imagery and digital content.",
       body2:
-        "Whether you need a single hero shot or a full batch workflow, I work with clear communication, consistent quality, and deadlines you can trust.",
-      h1: "Portrait & beauty retouching",
-      h2: "Fashion & editorial finishing",
-      h3: "Product & commercial cleanup",
-      h4: "Consistent batch delivery",
+        "I focus on creating clean, natural, and well-crafted results, paying close attention to light, color, texture, and the small details that make an image look professional without losing realism.",
+      body3:
+        "My work combines visual judgment, technique, and current tools, including AI when it truly adds value to the final result. I aim for each image not only to look better, but also to feel consistent with the style, purpose, and communication of the project.",
+      body4:
+        "As a **Top Rated Plus freelancer on Upwork**, I've worked with national and international clients, maintaining clear communication, organized deliveries, and a careful approach to every detail.",
+      h1: "Portrait and beauty retouching",
+      h2: "Fashion, lifestyle, and commercial content",
+      h3: "Product, e-commerce, and real estate",
+      h4: "AI, compositing, and batch editing",
       cta: "Get in touch",
       imageAlt: "Karly — professional photo retoucher",
     },
@@ -151,10 +154,10 @@ export const messages = {
     },
     hero: {
       greeting: "Hola, soy Karly",
-      tagline: "Retoque fotográfico profesional y edición de imagen",
-      taglineMobile: "Retoque fotográfico\nprofesional y\nedición de imagen",
+      tagline: "Retoque fotográfico y edición visual profesional",
+      taglineMobile: "Retoque fotográfico\ny edición visual\nprofesional",
       description:
-        "Retoque de alta calidad para retrato, moda y producto: limpio, natural y listo para entregar.",
+        "Retoque de alta calidad para elevar tus imágenes.",
       hire: "Contrátame en Upwork",
       portfolio: "Ver portafolio",
       connect: "Conectemos",
@@ -195,21 +198,24 @@ export const messages = {
       consultingDesc:
         "Mejora tu técnica, tu flujo de trabajo y tu negocio creativo con guía cercana.",
       aboutTitle: "Sobre mí",
-      aboutIntro:
-        "Soy Karly, retocadora profesional enfocada en imágenes limpias, naturales y listas para entregar.",
+      aboutIntro: "",
       contactTitle: "Contacto",
       contactDesc:
         "¿Listo para elevar tus imágenes? Escríbeme y empecemos un proyecto.",
     },
     about: {
       body1:
-        "Me especializo en retoque de alta calidad para retrato, moda y producto. Equilibro pulido y naturalidad para elevar cada imagen sin que se vea excesiva.",
+        "Soy Karly, editora y retocadora visual con más de 6 años de experiencia trabajando en imagen comercial y contenido digital.",
       body2:
-        "Ya sea una imagen principal o un lote completo, trabajo con comunicación clara, calidad constante y plazos confiables.",
+        "Me enfoco en lograr resultados limpios, naturales y bien cuidados, prestando atención a la luz, el color, la textura y los pequeños detalles que hacen que una imagen se vea profesional sin perder realismo.",
+      body3:
+        "Mi trabajo combina criterio visual, técnica y herramientas actuales, incluyendo IA cuando realmente aporta al resultado. Busco que cada imagen no solo se vea mejor, sino que tenga coherencia con el estilo, el propósito y la comunicación del proyecto.",
+      body4:
+        "Como **Top Rated Plus en Upwork**, he trabajado con clientes nacionales e internacionales, manteniendo una comunicación clara, entregas organizadas y un enfoque cuidadoso en cada detalle.",
       h1: "Retoque de retrato y belleza",
-      h2: "Acabado de moda y editorial",
-      h3: "Limpieza de producto comercial",
-      h4: "Entrega consistente por lotes",
+      h2: "Moda, lifestyle y contenido comercial",
+      h3: "Producto, e-commerce y real estate",
+      h4: "IA, composición y edición por lotes",
       cta: "Contáctame",
       imageAlt: "Karly, retocadora fotográfica profesional",
     },
