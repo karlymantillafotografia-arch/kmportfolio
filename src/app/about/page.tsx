@@ -35,7 +35,7 @@ function ToolList({
     <ul
       className={
         className ??
-        "mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 md:justify-start"
+        "flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 md:justify-start"
       }
     >
       {tools.map((tool) => (
@@ -68,27 +68,14 @@ export default function AboutPage() {
         <PageIntro title={t.pages.aboutTitle} />
 
         <div className="my-auto px-5 pb-4 pt-2 md:px-8 md:pb-6">
-          <section className="mx-auto grid max-w-4xl gap-6 md:grid-cols-[minmax(0,15rem)_1fr] md:items-stretch md:gap-x-4 md:gap-y-4 lg:gap-x-5">
-            {/* Mobile photo */}
-            <div className="relative mx-auto aspect-[4/5] w-[85%] max-w-[17rem] overflow-hidden rounded-lg bg-bg-warm md:hidden">
+          <section className="mx-auto grid max-w-4xl gap-6 md:grid-cols-[minmax(0,15rem)_1fr] md:grid-rows-[1fr_auto] md:items-stretch md:gap-x-4 md:gap-y-4 lg:gap-x-5">
+            <div className="relative mx-auto aspect-[4/5] w-[85%] max-w-[17rem] overflow-hidden rounded-lg bg-bg-warm md:row-start-1 md:mx-0 md:aspect-auto md:h-full md:min-h-0 md:w-full md:max-w-none md:justify-self-stretch">
               <Image
                 src={ABOUT_IMAGE}
                 alt={t.about.imageAlt}
                 fill
-                sizes="68vw"
-                className="object-cover object-[center_20%]"
-                priority
-              />
-            </div>
-
-            {/* Desktop photo: stretches to match text + tools height */}
-            <div className="relative hidden min-h-0 overflow-hidden rounded-lg bg-bg-warm md:row-start-1 md:block md:self-stretch">
-              <Image
-                src={ABOUT_IMAGE}
-                alt={t.about.imageAlt}
-                fill
-                sizes="240px"
-                className="object-cover object-[center_18%]"
+                sizes="(max-width: 768px) 68vw, 300px"
+                className="object-cover object-top scale-[1.08] origin-bottom"
                 priority
               />
             </div>
@@ -123,7 +110,9 @@ export default function AboutPage() {
                 ))}
               </ul>
 
-              <ToolList tools={tools} />
+              <div className="mt-5 md:hidden">
+                <ToolList tools={tools} />
+              </div>
 
               <div className="mt-6 flex justify-center md:hidden">
                 <Button href="/contact" showArrow>
@@ -132,10 +121,13 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="hidden md:col-start-2 md:row-start-2 md:flex md:justify-start">
-              <Button href="/contact" showArrow>
-                {t.about.cta}
-              </Button>
+            <div className="hidden md:col-start-2 md:row-start-2 md:block md:text-left">
+              <ToolList tools={tools} />
+              <div className="mt-6 flex justify-start">
+                <Button href="/contact" showArrow>
+                  {t.about.cta}
+                </Button>
+              </div>
             </div>
           </section>
         </div>
