@@ -8,7 +8,7 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getToolLabels } from "@/i18n/localize";
 
-const ABOUT_IMAGE = "/images/about-karly-2.png";
+const ABOUT_IMAGE = "/images/about-karly-4.png";
 
 function richText(text: string): ReactNode[] {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
