@@ -63,12 +63,12 @@ export function Hero() {
               {t.hero.hire}
             </Button>
             <Button
-              href="/portfolio"
+              href="/services"
               variant="secondary"
               showArrow
               className="h-6 w-auto border-ink/80 bg-[#f3eee8] px-2.5 py-0 text-[9px] leading-none hover:bg-[#f3eee8] hover:text-ink md:h-10 md:px-5 md:text-[13px] lg:h-auto lg:border-ink lg:bg-transparent lg:px-4 lg:py-2.5 lg:text-[13px] lg:hover:bg-ink lg:hover:text-bg [&_svg]:size-2.5 md:[&_svg]:size-4 lg:[&_svg]:size-3.5"
             >
-              {t.hero.portfolio}
+              {t.hero.services}
             </Button>
           </div>
 

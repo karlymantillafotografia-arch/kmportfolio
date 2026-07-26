@@ -25,7 +25,7 @@ export const messages = {
       description:
         "High-quality retouching to elevate your images.",
       hire: "Hire me on Upwork",
-      portfolio: "View Portfolio",
+      services: "View Services",
       connect: "Let's connect",
       imageAlt: "Karly — professional photo retoucher",
     },
@@ -74,7 +74,7 @@ export const messages = {
       body1:
         "I'm Karly, a visual editor and photo retoucher with over 6 years of experience working on commercial imagery and digital content.",
       body2:
-        "I focus on creating clean, natural, and well-crafted results, paying close attention to light, color, texture, and the small details that make an image look professional without losing realism.",
+        "I approach each image with a clean, natural, and detail-focused eye, refining light, color, texture, and overall visual consistency while preserving realism.",
       body3:
         "My work combines visual judgment, technique, and current tools, including AI when it truly adds value to the final result. I aim for each image not only to look better, but also to feel consistent with the style, purpose, and communication of the project.",
       body4:
@@ -160,7 +160,7 @@ export const messages = {
       description:
         "Retoque de alta calidad para elevar tus imágenes.",
       hire: "Contrátame en Upwork",
-      portfolio: "Ver portafolio",
+      services: "Ver servicios",
       connect: "Conectemos",
       imageAlt: "Karly, retocadora fotográfica profesional",
     },
@@ -209,7 +209,7 @@ export const messages = {
       body1:
         "Soy Karly, editora y retocadora visual con más de 6 años de experiencia trabajando en imagen comercial y contenido digital.",
       body2:
-        "Me enfoco en lograr resultados limpios, naturales y bien cuidados, prestando atención a la luz, el color, la textura y los pequeños detalles que hacen que una imagen se vea profesional sin perder realismo.",
+        "Abordo cada imagen con una mirada limpia, natural y enfocada en el detalle, refinando la luz, el color, la textura y la coherencia visual sin perder realismo.",
       body3:
         "Mi trabajo combina criterio visual, técnica y herramientas actuales, incluyendo IA cuando realmente aporta al resultado. Busco que cada imagen no solo se vea mejor, sino que tenga coherencia con el estilo, el propósito y la comunicación del proyecto.",
       body4:
