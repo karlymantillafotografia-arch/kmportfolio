@@ -14,7 +14,7 @@ function richText(text: string): ReactNode[] {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={i} className="font-semibold text-ink">
+        <strong key={i} className="font-medium text-ink">
           {part.slice(2, -2)}
         </strong>
       );
@@ -97,11 +97,7 @@ export default function AboutPage() {
               {body.map((paragraph, index) => (
                 <p
                   key={paragraph}
-                  className={
-                    index === 0
-                      ? "text-center text-[13px] font-medium leading-relaxed text-ink md:text-justify md:text-[14px]"
-                      : "mt-3 text-center text-[13px] leading-relaxed text-ink-muted md:text-justify md:text-[14px]"
-                  }
+                  className={`text-center text-[13px] leading-relaxed text-ink-muted md:text-justify md:text-[14px] ${index === 0 ? "" : "mt-3"}`}
                 >
                   {richText(paragraph)}
                 </p>

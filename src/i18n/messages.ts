@@ -72,13 +72,13 @@ export const messages = {
     },
     about: {
       body1:
-        "I'm Karly, a visual editor and photo retoucher with over 6 years of experience working on commercial imagery and digital content.",
+        "**I'm Karly, a visual editor and photo retoucher with over 6 years of experience working on commercial imagery and digital content.**",
       body2:
-        "I approach each image with a clean, natural, and detail-focused eye, refining light, color, texture, and overall visual consistency while preserving realism.",
+        "I approach each image with a clean, natural, and detail-focused eye, carefully refining light, color, and texture to achieve a professional result without losing authenticity.",
       body3:
-        "My work combines visual judgment, technique, and current tools, including AI when it truly adds value to the final result. I aim for each image not only to look better, but also to feel consistent with the style, purpose, and communication of the project.",
+        "My work combines visual judgment, technique, and current tools, with a thoughtful use of AI within editing processes designed to preserve realism, visual consistency, and a clear aesthetic direction.",
       body4:
-        "As a **Top Rated Plus freelancer on Upwork**, I've worked with national and international clients, maintaining clear communication, organized deliveries, and a careful approach to every detail.",
+        "As a **Top Rated Plus freelancer on Upwork**, I've worked with national and international clients on ongoing projects and long-term collaborations, maintaining clear communication, organized deliveries, and consistent attention to the visual quality of each project.",
       h1: "Portrait and beauty retouching",
       h2: "Fashion, lifestyle, and commercial content",
       h3: "Product, e-commerce, and real estate",
@@ -207,13 +207,13 @@ export const messages = {
     },
     about: {
       body1:
-        "Soy Karly, editora y retocadora visual con más de 6 años de experiencia trabajando en imagen comercial y contenido digital.",
+        "**Soy Karly, editora y retocadora visual con más de 6 años de experiencia trabajando en imagen comercial y contenido digital.**",
       body2:
-        "Abordo cada imagen con una mirada limpia, natural y enfocada en el detalle, refinando la luz, el color, la textura y la coherencia visual sin perder realismo.",
+        "Abordo cada imagen con una mirada limpia, natural y enfocada en el detalle, cuidando la luz, el color y la textura para lograr un resultado profesional sin perder autenticidad.",
       body3:
-        "Mi trabajo combina criterio visual, técnica y herramientas actuales, incluyendo IA cuando realmente aporta al resultado. Busco que cada imagen no solo se vea mejor, sino que tenga coherencia con el estilo, el propósito y la comunicación del proyecto.",
+        "Mi trabajo combina criterio visual, técnica y herramientas actuales, con un uso cuidadoso de la IA dentro de procesos de edición pensados para conservar realismo, coherencia visual y una dirección estética clara.",
       body4:
-        "Como **Top Rated Plus en Upwork**, he trabajado con clientes nacionales e internacionales, manteniendo una comunicación clara, entregas organizadas y un enfoque cuidadoso en cada detalle.",
+        "Como **Top Rated Plus en Upwork**, he trabajado con clientes nacionales e internacionales en proyectos continuos y colaboraciones a largo plazo, manteniendo una comunicación clara, entregas organizadas y una atención constante a la calidad visual de cada proyecto.",
       h1: "Retoque de retrato y belleza",
       h2: "Moda, lifestyle y contenido comercial",
       h3: "Producto, e-commerce y real estate",
