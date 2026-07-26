@@ -24,15 +24,25 @@ export function CtaBanner() {
           </p>
         </div>
 
-        <Button
-          href={site.upworkUrl}
-          external
-          showArrow
-          className="mt-0.5 w-auto shrink-0 px-3.5 py-1.5 text-[11px] [&>svg:last-child]:hidden md:mt-0 md:w-auto md:max-w-none md:px-3.5 md:py-2 md:text-[12px] md:[&>svg:last-child]:inline"
-        >
-          <UpworkMark className="size-3.5 md:hidden" />
-          {t.cta.hire}
-        </Button>
+        <div className="mt-0.5 flex w-full shrink-0 flex-col items-stretch gap-2 sm:w-auto sm:flex-row sm:items-center md:mt-0">
+          <Button
+            href="/contact"
+            showArrow
+            variant="secondary"
+            className="w-auto px-3.5 py-1.5 text-[11px] md:px-3.5 md:py-2 md:text-[12px]"
+          >
+            {t.cta.contact}
+          </Button>
+          <Button
+            href={site.upworkUrl}
+            external
+            showArrow
+            className="w-auto px-3.5 py-1.5 text-[11px] [&>svg:last-child]:hidden md:w-auto md:max-w-none md:px-3.5 md:py-2 md:text-[12px] md:[&>svg:last-child]:inline"
+          >
+            <UpworkMark className="size-3.5 md:hidden" />
+            {t.cta.hire}
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -33,6 +33,7 @@ export const messages = {
     cta: {
       title: "Ready to elevate your images?",
       body: "Let's work together and bring your photos to the next level.",
+      contact: "Get in touch",
       hire: "Hire me on Upwork",
     },
     footer: {
@@ -167,6 +168,7 @@ export const messages = {
     cta: {
       title: "¿Listo para elevar tus imágenes?",
       body: "Trabajemos juntos y llevemos tus fotos al siguiente nivel.",
+      contact: "Contáctame",
       hire: "Contrátame en Upwork",
     },
     footer: {

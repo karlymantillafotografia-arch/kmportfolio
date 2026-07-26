@@ -5,11 +5,10 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
-import { Button } from "@/components/ui/Button";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getToolLabels } from "@/i18n/localize";
 
-const ABOUT_IMAGE = "/images/about-karly.png";
+const ABOUT_IMAGE = "/images/about-karly-2.png";
 
 function richText(text: string): ReactNode[] {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
@@ -35,16 +34,16 @@ function ToolList({
     <ul
       className={
         className ??
-        "flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 md:justify-start"
+        "flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-between"
       }
     >
       {tools.map((tool) => (
         <li
           key={tool.name}
-          className="inline-flex items-center gap-1.5 text-[11px] text-ink-muted"
+          className="inline-flex items-center gap-1.5 text-[12px] text-ink-muted md:text-[13px]"
         >
           <span
-            className="flex size-6 items-center justify-center rounded bg-bg-warm font-sans text-[9px] font-semibold tracking-wide text-ink"
+            className="flex size-7 items-center justify-center rounded bg-bg-warm font-sans text-[10px] font-semibold tracking-wide text-ink md:size-8 md:text-[11px]"
             aria-hidden
           >
             {tool.short}
@@ -67,15 +66,29 @@ export default function AboutPage() {
       <div className="flex flex-1 flex-col">
         <PageIntro title={t.pages.aboutTitle} />
 
-        <div className="my-auto px-5 pb-4 pt-2 md:px-8 md:pb-6">
-          <section className="mx-auto grid max-w-4xl gap-6 md:grid-cols-[minmax(0,15rem)_1fr] md:grid-rows-[1fr_auto] md:items-stretch md:gap-x-4 md:gap-y-4 lg:gap-x-5">
-            <div className="relative mx-auto aspect-[4/5] w-[85%] max-w-[17rem] overflow-hidden rounded-lg bg-bg-warm md:row-start-1 md:mx-0 md:aspect-auto md:h-full md:min-h-0 md:w-full md:max-w-none md:justify-self-stretch">
+        <div className="my-auto px-5 pt-2 pb-0 md:px-8">
+          <section className="mx-auto grid max-w-5xl gap-6 md:grid-cols-[minmax(0,17rem)_1fr] md:items-stretch md:gap-x-8 lg:grid-cols-[minmax(0,18rem)_1fr] lg:gap-x-10">
+            {/* Mobile photo */}
+            <div className="mx-auto w-[85%] max-w-[17rem] overflow-hidden rounded-lg bg-bg-warm md:hidden">
+              <Image
+                src={ABOUT_IMAGE}
+                alt={t.about.imageAlt}
+                width={819}
+                height={1024}
+                sizes="68vw"
+                className="h-auto w-full"
+                priority
+              />
+            </div>
+
+            {/* Desktop photo: same height as text + bullets + tools */}
+            <div className="relative hidden min-h-0 overflow-hidden rounded-lg bg-bg-warm md:row-start-1 md:block md:h-full md:min-h-full md:self-stretch">
               <Image
                 src={ABOUT_IMAGE}
                 alt={t.about.imageAlt}
                 fill
-                sizes="(max-width: 768px) 68vw, 300px"
-                className="object-cover object-top scale-[1.08] origin-bottom"
+                sizes="320px"
+                className="object-cover object-center"
                 priority
               />
             </div>
@@ -86,8 +99,8 @@ export default function AboutPage() {
                   key={paragraph}
                   className={
                     index === 0
-                      ? "text-[13px] font-medium leading-relaxed text-ink md:text-[14px]"
-                      : "mt-3 text-[13px] leading-relaxed text-ink-muted md:text-[14px]"
+                      ? "text-center text-[13px] font-medium leading-relaxed text-ink md:text-justify md:text-[14px]"
+                      : "mt-3 text-center text-[13px] leading-relaxed text-ink-muted md:text-justify md:text-[14px]"
                   }
                 >
                   {richText(paragraph)}
@@ -110,23 +123,11 @@ export default function AboutPage() {
                 ))}
               </ul>
 
-              <div className="mt-5 md:hidden">
-                <ToolList tools={tools} />
-              </div>
-
-              <div className="mt-6 flex justify-center md:hidden">
-                <Button href="/contact" showArrow>
-                  {t.about.cta}
-                </Button>
-              </div>
-            </div>
-
-            <div className="hidden md:col-start-2 md:row-start-2 md:block md:text-left">
-              <ToolList tools={tools} />
-              <div className="mt-6 flex justify-start">
-                <Button href="/contact" showArrow>
-                  {t.about.cta}
-                </Button>
+              <div className="mt-5">
+                <ToolList
+                  tools={tools}
+                  className="flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-between"
+                />
               </div>
             </div>
           </section>
