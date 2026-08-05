@@ -10,10 +10,13 @@ import {
   ShoppingBag,
   WandSparkles,
   Layers,
-  MessagesSquare,
-  History,
   Building2,
-  Heart,
+  Images,
+  Store,
+  Sparkles,
+  ImageMinus,
+  Gem,
+  Palette,
   Check,
   ArrowRight,
   X,
@@ -26,13 +29,16 @@ import { cn } from "@/lib/cn";
 const icons = {
   portrait: ScanFace,
   fashion: Shirt,
+  lifestyle: Images,
   product: ShoppingBag,
-  ai: WandSparkles,
-  batch: Layers,
-  consulting: MessagesSquare,
-  restoration: History,
+  marketplace: Store,
   realestate: Building2,
-  wedding: Heart,
+  ai: WandSparkles,
+  aiScenes: Sparkles,
+  backgrounds: ImageMinus,
+  batch: Layers,
+  jewelry: Gem,
+  color: Palette,
 } as const;
 
 type ServiceCardProps = {
@@ -168,23 +174,6 @@ export function ServiceCard({
                   </li>
                 ))}
               </ul>
-
-              <p className="mt-7 text-[11px] font-medium tracking-[0.18em] text-ink-muted uppercase">
-                {t.serviceCard.how}
-              </p>
-              <ol className="mt-3 space-y-2.5">
-                {service.process.map((step, stepIndex) => (
-                  <li
-                    key={step}
-                    className="flex items-start gap-3 text-[13px] leading-snug text-ink"
-                  >
-                    <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-surface-muted font-serif text-[11px] text-ink">
-                      {stepIndex + 1}
-                    </span>
-                    {step}
-                  </li>
-                ))}
-              </ol>
 
               <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-ink/10 pt-6">
                 <Link

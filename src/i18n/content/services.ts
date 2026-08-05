@@ -11,498 +11,543 @@ type ServiceCopy = {
   process: L[];
 };
 
+const defaultProcess: L[] = [
+  {
+    en: "You share your images, goals, and style references",
+    es: "Compartes tus imágenes, objetivos y referencias de estilo",
+  },
+  {
+    en: "I prepare a sample or first batch for approval",
+    es: "Preparo una muestra o primer lote para aprobación",
+  },
+  {
+    en: "The full set is finished with the approved direction",
+    es: "La serie completa se finaliza con la dirección aprobada",
+  },
+  {
+    en: "Final review and delivery ready for your use",
+    es: "Revisión final y entrega lista para tu uso",
+  },
+];
+
 export const serviceCopy: Record<string, ServiceCopy> = {
   portrait: {
-    title: { en: "Portrait Retouching", es: "Retoque de retrato" },
+    title: {
+      en: "Portrait and Beauty Retouching",
+      es: "Retoque de retrato y belleza",
+    },
+    shortTitle: { en: "Portrait & Beauty", es: "Retrato y belleza" },
     description: {
-      en: "Natural skin work and refined portrait finishing.",
-      es: "Piel natural y acabado refinado de retrato.",
+      en: "Skin, facial features, and lighting refined with precision while maintaining a natural finish.",
+      es: "Piel, rasgos e iluminación trabajados con precisión, manteniendo un acabado natural.",
     },
     details: {
-      en: "High-end portrait finishing that keeps skin looking like skin. Every image is retouched by hand with non-destructive techniques, preserving natural texture while refining tone, light, and detail for a polished, editorial-quality result.",
-      es: "Acabado premium de retrato que mantiene la piel real. Cada imagen se retoca a mano con técnicas no destructivas, cuidando textura, tono, luz y detalle para un resultado editorial pulido.",
+      en: "Focused on beauty, makeup, personal portraits, and professional photography. The editing improves skin texture, tones, lighting, and facial details while preserving a realistic, clean, and polished appearance, without removing natural features or making the retouching look obvious.",
+      es: "Enfocado en imágenes de belleza, maquillaje, retrato personal y fotografía profesional. La edición mejora textura, tonos de piel, luz y detalles del rostro, conservando una apariencia realista, limpia y bien terminada, sin borrar los rasgos naturales ni hacer que el retoque resulte evidente.",
     },
     includes: [
       {
-        en: "Skin retouching with preserved natural texture",
-        es: "Retoque de piel con textura natural intacta",
+        en: "Skin cleanup while preserving natural texture",
+        es: "Limpieza de piel conservando textura natural",
       },
       {
-        en: "Blemish and stray-hair removal",
-        es: "Eliminación de manchas y pelos sueltos",
+        en: "Correction of blemishes, redness, and distractions",
+        es: "Corrección de imperfecciones, rojeces y distracciones",
       },
       {
-        en: "Dodge & burn for dimension and light shaping",
-        es: "Dodge & burn para volumen y modelado de luz",
+        en: "Retouching of eyes, lips, teeth, and facial details",
+        es: "Retoque de ojos, labios, dientes y detalles del rostro",
       },
       {
-        en: "Eye, lip, and teeth enhancement",
-        es: "Mejora de ojos, labios y dientes",
+        en: "Hair cleanup and flyaway removal",
+        es: "Limpieza de cabello y flyaways",
       },
       {
-        en: "Color correction and white balance",
-        es: "Corrección de color y balance de blancos",
+        en: "Dodge and burn for volume and dimension",
+        es: "Dodge & burn para volumen y dimensión",
       },
       {
-        en: "Background cleanup and final crop",
-        es: "Limpieza de fondo y recorte final",
+        en: "Color, lighting, and contrast adjustments",
+        es: "Ajuste de color, luz y contraste",
       },
     ],
-    process: [
-      {
-        en: "You send your selects and reference looks",
-        es: "Envías tus fotos seleccionadas y referencias de estilo",
-      },
-      {
-        en: "I retouch a sample image for your approval",
-        es: "Retoco una muestra para tu aprobación",
-      },
-      {
-        en: "Full set is finished with the approved style",
-        es: "La serie completa se edita con ese estilo",
-      },
-      {
-        en: "Delivery in high-res, ready for print and web",
-        es: "Entrega en alta resolución, lista para impresión y web",
-      },
-    ],
+    process: defaultProcess,
   },
   fashion: {
-    title: { en: "Fashion & Editorial", es: "Moda y editorial" },
+    title: {
+      en: "Fashion and Editorial Retouching",
+      es: "Retoque de moda y editorial",
+    },
+    shortTitle: { en: "Fashion & Editorial", es: "Moda y editorial" },
     description: {
-      en: "Editorial polish for campaigns and lookbooks.",
-      es: "Pulido editorial para campañas y lookbooks.",
+      en: "A more refined visual finish for campaigns, lookbooks, fashion, and editorial photography.",
+      es: "Una estética más cuidada para campañas, lookbooks, moda y fotografía editorial.",
     },
     details: {
-      en: "Campaign-ready finishing for fashion imagery. From lookbooks to magazine editorials, I refine garments, skin, and color so every frame holds a consistent visual language across the full set.",
-      es: "Acabado listo para campaña en moda. De lookbooks a editoriales, refino prendas, piel y color para un lenguaje visual coherente en toda la serie.",
+      en: "Skin, clothing, hair, color, and lighting are treated as part of the same visual direction. The final result preserves the essence of the original photography while improving its finish, depth, and consistency, especially across image series that need to feel visually connected.",
+      es: "La piel, las prendas, el cabello, el color y la iluminación se trabajan como parte de una misma dirección visual. El resultado mantiene la esencia de la fotografía, pero mejora su acabado, profundidad y coherencia, especialmente en series donde todas las imágenes deben verse conectadas.",
     },
     includes: [
       {
-        en: "Garment cleanup: wrinkles, lint, and shape refinement",
-        es: "Limpieza de prenda: arrugas, pelusa y forma",
-      },
-      { en: "High-end skin retouching", es: "Retoque de piel de alto nivel" },
-      {
-        en: "Consistent color grading across the series",
-        es: "Corrección de color consistente en la serie",
+        en: "Natural-looking skin retouching",
+        es: "Retoque de piel con acabado natural",
       },
       {
-        en: "Set and background refinement",
-        es: "Refinado de escenario y fondo",
+        en: "Removal of wrinkles, lint, marks, and clothing imperfections",
+        es: "Limpieza de prendas, arrugas, pelusas y marcas visibles",
       },
       {
-        en: "Compositing and small object removal",
-        es: "Composición y eliminación de objetos pequeños",
+        en: "Hair cleanup and fine-detail corrections",
+        es: "Corrección de cabello y detalles finos",
       },
       {
-        en: "Delivery in print and web formats",
-        es: "Entrega en formatos de impresión y web",
+        en: "Editorial color grading",
+        es: "Ajuste de color editorial",
+      },
+      {
+        en: "Lighting, contrast, and depth adjustments",
+        es: "Balance de luz, contraste y profundidad",
+      },
+      {
+        en: "Visual consistency across photographs",
+        es: "Consistencia visual entre fotografías",
       },
     ],
-    process: [
+    process: defaultProcess,
+  },
+  lifestyle: {
+    title: {
+      en: "Lifestyle and Commercial Content Editing",
+      es: "Edición lifestyle y contenido comercial",
+    },
+    shortTitle: {
+      en: "Lifestyle & Commercial",
+      es: "Lifestyle y comercial",
+    },
+    description: {
+      en: "Cleaner, more balanced content prepared to communicate visually.",
+      es: "Contenido visual más limpio, equilibrado y mejor preparado para comunicar.",
+    },
+    details: {
+      en: "Applied to campaigns, social media, lifestyle content, and commercial materials. Color, lighting, framing, and specific details are adjusted to improve the image’s visual clarity, strengthen its purpose, and create a more professional presentation without losing its natural appearance.",
+      es: "Aplicada a campañas, redes sociales, contenido lifestyle y piezas comerciales. Se ajustan color, luz, encuadre y detalles específicos para mejorar la lectura de la imagen, reforzar su intención visual y conseguir una presentación más profesional sin perder naturalidad.",
+    },
+    includes: [
       {
-        en: "We define the visual direction of the campaign",
-        es: "Definimos la dirección visual de la campaña",
+        en: "Lighting and color correction",
+        es: "Corrección de luz y color",
       },
       {
-        en: "Test edit on a key frame to lock the look",
-        es: "Edición de prueba en un fotograma clave",
+        en: "Removal of distracting elements",
+        es: "Limpieza de elementos distractores",
       },
       {
-        en: "Full editorial is retouched with that language",
-        es: "El editorial completo se retoca con ese estilo",
+        en: "Framing and composition adjustments",
+        es: "Ajuste de encuadre y composición",
       },
       {
-        en: "Final review round and delivery per your specs",
-        es: "Revisión final y entrega según tus especificaciones",
+        en: "Retouching of people, spaces, or products",
+        es: "Retoque de personas, espacios o productos",
+      },
+      {
+        en: "Tone matching and color consistency",
+        es: "Homogeneización de tonos",
+      },
+      {
+        en: "Optimized export for web or social media",
+        es: "Exportación optimizada para web o redes",
       },
     ],
+    process: defaultProcess,
   },
   product: {
-    title: { en: "Product & E-commerce", es: "Producto y comercio electrónico" },
-    shortTitle: { en: "Product Editing", es: "Edición de producto" },
+    title: {
+      en: "Product and E-commerce Editing",
+      es: "Edición de producto y e-commerce",
+    },
+    shortTitle: {
+      en: "Product & E-commerce",
+      es: "Producto y e-commerce",
+    },
     description: {
-      en: "Consistent product imagery for online stores.",
-      es: "Imágenes de producto consistentes para tiendas en línea.",
+      en: "Shape, color, and texture refined to present the product clearly.",
+      es: "Forma, color y textura mejor definidos para mostrar el producto con claridad.",
     },
     details: {
-      en: "Clean, consistent product imagery that converts. I standardize lighting, color, and framing across your entire catalog so products look accurate, professional, and cohesive in any storefront.",
-      es: "Imágenes de producto limpias que convierten. Estandarizo luz, color y encuadre en todo el catálogo para un aspecto preciso, profesional y cohesivo.",
+      en: "Each image is edited while respecting the product’s real characteristics, correcting marks, reflections, color, shadows, and surface details. This creates cleaner, more consistent, and trustworthy images for online stores, catalogs, and commercial materials.",
+      es: "Cada imagen se trabaja respetando las características reales del producto, corrigiendo manchas, reflejos, color, sombras y detalles de superficie. Esto permite obtener fotografías más limpias, consistentes y confiables para tiendas online, catálogos y materiales comerciales.",
     },
     includes: [
       {
-        en: "Background removal or pure-white backdrops",
-        es: "Recorte de fondo o fondos blanco puro",
+        en: "Removal of dust, stains, scratches, and unwanted reflections",
+        es: "Limpieza de polvo, manchas, rayones y reflejos",
       },
       {
-        en: "Accurate color matching to the real product",
-        es: "Color fiel al producto real",
+        en: "Product-accurate color correction",
+        es: "Corrección de color fiel al producto",
       },
       {
-        en: "Dust, scratch, and reflection cleanup",
-        es: "Limpieza de polvo, rayas y reflejos",
+        en: "Shadow and volume adjustments",
+        es: "Ajuste de sombras y volumen",
       },
       {
-        en: "Shadow creation for natural grounding",
-        es: "Sombras para anclar el producto",
+        en: "Texture and sharpness enhancement",
+        es: "Mejora de nitidez y textura",
       },
       {
-        en: "Alignment and crop consistency across the catalog",
-        es: "Alineación y recorte consistentes en el catálogo",
+        en: "Background cleanup or adjustment",
+        es: "Limpieza o ajuste de fondo",
       },
       {
-        en: "Marketplace-ready export (Amazon, Shopify, etc.)",
-        es: "Exportación lista para marketplaces (Amazon, Shopify)",
+        en: "Consistency across images of the same product",
+        es: "Consistencia entre imágenes del mismo producto",
       },
     ],
-    process: [
-      {
-        en: "You share your catalog and platform requirements",
-        es: "Compartes catálogo y requisitos de plataforma",
-      },
-      {
-        en: "I build a style guide from a sample batch",
-        es: "Creo una guía de estilo con un lote de muestra",
-      },
-      {
-        en: "The full catalog is edited to that standard",
-        es: "El catálogo completo se edita a ese estándar",
-      },
-      {
-        en: "Files delivered named and organized by SKU",
-        es: "Archivos entregados y ordenados por SKU",
-      },
-    ],
+    process: defaultProcess,
   },
-  ai: {
-    title: { en: "AI Image Enhancement", es: "Mejora de imagen con IA" },
+  marketplace: {
+    title: {
+      en: "Marketplace Image Optimization",
+      es: "Optimización para marketplaces",
+    },
+    shortTitle: { en: "Marketplaces", es: "Marketplaces" },
     description: {
-      en: "Smart cleanup paired with careful manual finishing.",
-      es: "Limpieza inteligente con acabado manual cuidadoso.",
+      en: "Clear, organized images adapted to the requirements of each platform.",
+      es: "Imágenes organizadas, claras y adaptadas a los requisitos de cada plataforma.",
     },
     details: {
-      en: "The speed of AI with the judgment of a professional retoucher. I use AI tools for upscaling, noise reduction, and cleanup, then finish every image by hand so results never look artificial.",
-      es: "La velocidad de la IA con criterio profesional. Uso IA para ampliación, ruido y limpieza, y termino a mano para que nada se vea artificial.",
+      en: "Amazon, Shopify, Etsy, and other marketplaces require images that work both visually and technically. Proportions, backgrounds, cleanup, color, and consistency are adjusted so the product can be understood quickly and presented professionally within the online store.",
+      es: "Amazon, Shopify, Etsy y otros marketplaces requieren imágenes que funcionen bien tanto visual como técnicamente. Se ajustan proporciones, fondo, limpieza, color y consistencia para que el producto pueda entenderse rápidamente y mantenga una presentación profesional dentro de la tienda.",
     },
     includes: [
       {
-        en: "AI upscaling for low-resolution images",
-        es: "Ampliación con IA para baja resolución",
+        en: "Format and proportion adjustments",
+        es: "Adaptación de formato y proporciones",
       },
       {
-        en: "Noise reduction and detail recovery",
-        es: "Reducción de ruido y recuperación de detalle",
+        en: "White, clean, or platform-specific backgrounds",
+        es: "Fondo blanco, limpio o según requerimiento",
       },
       {
-        en: "Smart object and distraction removal",
-        es: "Eliminación inteligente de objetos y distracciones",
+        en: "Visual product cleanup",
+        es: "Limpieza visual del producto",
       },
       {
-        en: "Generative fill reviewed and refined manually",
-        es: "Relleno generativo revisado y refinado a mano",
+        en: "Lighting and color correction",
+        es: "Corrección de color y luz",
       },
       {
-        en: "Old or damaged photo restoration",
-        es: "Restauración de fotos viejas o dañadas",
+        en: "Consistent primary and secondary images",
+        es: "Imágenes principales y secundarias consistentes",
       },
       {
-        en: "Final manual pass for a natural finish",
-        es: "Pase manual final para un acabado natural",
+        en: "Files exported and ready for upload",
+        es: "Exportación lista para cargar en tienda",
       },
     ],
-    process: [
-      {
-        en: "We review your images and define what AI can solve",
-        es: "Revisamos imágenes y qué puede resolver la IA",
-      },
-      {
-        en: "AI enhancement is applied with the right tools",
-        es: "Se aplica la mejora con IA usando las herramientas correctas",
-      },
-      {
-        en: "Every result is checked and refined by hand",
-        es: "Cada resultado se revisa y refina a mano",
-      },
-      {
-        en: "You receive natural-looking, high-quality files",
-        es: "Recibes archivos naturales y de alta calidad",
-      },
-    ],
-  },
-  batch: {
-    title: { en: "Batch Editing", es: "Edición por lotes" },
-    description: {
-      en: "Efficient volume editing with consistent quality.",
-      es: "Edición en volumen con calidad consistente.",
-    },
-    details: {
-      en: "Reliable volume editing for photographers and brands with large sets. Whether it is a wedding, an event, or a seasonal catalog, every image gets the same consistent look with fast turnaround.",
-      es: "Edición fiable en volumen para fotógrafos y marcas. Boda, evento o catálogo: mismo estilo consistente y entrega ágil.",
-    },
-    includes: [
-      {
-        en: "Color correction and exposure balancing at scale",
-        es: "Color y exposición balanceados a escala",
-      },
-      {
-        en: "Consistent style applied across the full set",
-        es: "Estilo consistente en toda la serie",
-      },
-      {
-        en: "Culling support and selection guidance",
-        es: "Apoyo en la selección de fotos",
-      },
-      {
-        en: "Custom presets built for your workflow",
-        es: "Presets a medida para tu flujo",
-      },
-      {
-        en: "Fast, agreed-upon turnaround times",
-        es: "Tiempos de entrega acordados y ágiles",
-      },
-      {
-        en: "Organized delivery, named and sorted",
-        es: "Entrega organizada, nombrada y ordenada",
-      },
-    ],
-    process: [
-      {
-        en: "You send the full set with your style references",
-        es: "Envías la serie completa con referencias",
-      },
-      {
-        en: "A sample batch defines the editing standard",
-        es: "Un lote de muestra define el estándar",
-      },
-      {
-        en: "The set is edited in volume with quality control",
-        es: "La serie se edita en volumen con control de calidad",
-      },
-      {
-        en: "On-time delivery, sorted and ready to publish",
-        es: "Entrega a tiempo, ordenada y lista para publicar",
-      },
-    ],
-  },
-  consulting: {
-    title: { en: "Personalized Consulting", es: "Consultoría personalizada" },
-    description: {
-      en: "Mentorship to sharpen skills and grow your business.",
-      es: "Mentoría para pulir habilidades y crecer tu negocio.",
-    },
-    details: {
-      en: "One-on-one sessions tailored to where you are now and where you want to go. We review your work together, refine your editing workflow, and build a plan to grow your skills or your photography business.",
-      es: "Sesiones uno a uno según tu punto actual y tu meta. Revisamos tu trabajo, afinamos el flujo de edición y armamos un plan para crecer.",
-    },
-    includes: [
-      {
-        en: "Portfolio review with actionable feedback",
-        es: "Revisión de portafolio con comentarios accionables",
-      },
-      {
-        en: "Live retouching sessions on your own images",
-        es: "Sesiones en vivo de retoque en tus imágenes",
-      },
-      {
-        en: "Workflow and software guidance (Photoshop, Lightroom)",
-        es: "Guía de flujo y software (Photoshop, Lightroom)",
-      },
-      {
-        en: "Pricing and client-communication strategy",
-        es: "Estrategia de precios y comunicación",
-      },
-      {
-        en: "Personalized learning roadmap",
-        es: "Hoja de ruta de aprendizaje personal",
-      },
-      {
-        en: "Session recording so you can rewatch anytime",
-        es: "Grabación de la sesión para volver a verla cuando quieras",
-      },
-    ],
-    process: [
-      {
-        en: "Short intake call to understand your goals",
-        es: "Llamada breve para entender tus metas",
-      },
-      {
-        en: "We build a personalized session plan",
-        es: "Armamos un plan de sesión personalizado",
-      },
-      {
-        en: "Live one-on-one sessions with real projects",
-        es: "Sesiones uno a uno con proyectos reales",
-      },
-      {
-        en: "Follow-up materials and recording included",
-        es: "Material de seguimiento y grabación incluidos",
-      },
-    ],
-  },
-  restoration: {
-    title: { en: "Photo Restoration", es: "Restauración de fotos" },
-    description: {
-      en: "Bring damaged or faded photos back to life.",
-      es: "Devuelve vida a fotos dañadas o desvanecidas.",
-    },
-    details: {
-      en: "Careful restoration of old, damaged, or faded photographs. Tears, stains, scratches, and color loss are repaired by hand, preserving the character of the original image while making it ready to print and share again.",
-      es: "Restauración cuidadosa de fotos viejas o dañadas. Rasgaduras, manchas y color se reparan a mano, cuidando el carácter original y dejándolas listas para imprimir.",
-    },
-    includes: [
-      {
-        en: "Repair of tears, scratches, and stains",
-        es: "Reparación de rasgaduras, rayas y manchas",
-      },
-      {
-        en: "Reconstruction of missing areas",
-        es: "Reconstrucción de áreas faltantes",
-      },
-      {
-        en: "Fading and color-cast correction",
-        es: "Corrección de decoloración y tintes",
-      },
-      {
-        en: "Optional colorization of black-and-white photos",
-        es: "Colorización opcional de fotos en blanco y negro",
-      },
-      {
-        en: "Noise cleanup and detail sharpening",
-        es: "Limpieza de ruido y enfoque de detalle",
-      },
-      {
-        en: "High-resolution file ready to reprint",
-        es: "Archivo en alta resolución listo para reimprimir",
-      },
-    ],
-    process: [
-      {
-        en: "You send a scan or photo of the original",
-        es: "Envías un escaneo o foto del original",
-      },
-      {
-        en: "I assess the damage and confirm the scope",
-        es: "Evalúo el daño y confirmo el alcance",
-      },
-      {
-        en: "The image is restored with regular previews",
-        es: "Se restaura con vistas previas regulares",
-      },
-      {
-        en: "You receive the restored file in high resolution",
-        es: "Recibes el archivo restaurado en alta resolución",
-      },
-    ],
+    process: defaultProcess,
   },
   realestate: {
-    title: { en: "Real Estate Editing", es: "Edición inmobiliaria" },
+    title: {
+      en: "Real Estate Photo Editing",
+      es: "Edición para real estate",
+    },
+    shortTitle: { en: "Real Estate", es: "Real estate" },
     description: {
-      en: "Bright, inviting property images that sell.",
-      es: "Imágenes de propiedades luminosas e invitadoras que venden.",
+      en: "Brighter, more balanced spaces that remain faithful to their real appearance.",
+      es: "Espacios más luminosos, equilibrados y fieles a su apariencia real.",
     },
     details: {
-      en: "Property photography editing that makes listings stand out. From window pulls and sky replacements to HDR blending, every room is delivered bright, true to color, and ready to attract buyers.",
-      es: "Edición inmobiliaria que destaca los anuncios. De recuperación de vistas en ventanas y cielos a fusión HDR: cada espacio sale claro, fiel al color y listo para atraer compradores.",
+      en: "Interior and exterior images are corrected with attention to exposure, white balance, perspective, and detail. Windows are recovered, interior lighting is balanced, and distractions are removed to improve the overall perception of the space without creating an artificial or misleading result.",
+      es: "Interiores y exteriores se corrigen cuidando exposición, balance de blancos, perspectiva y detalle. También se recuperan ventanas, se equilibran luces y se eliminan distracciones para mejorar la percepción del espacio sin crear una apariencia artificial o diferente a la propiedad real.",
     },
     includes: [
       {
-        en: "HDR blending and exposure balancing",
-        es: "Fusión HDR y balance de exposición",
+        en: "Exposure and lighting correction",
+        es: "Corrección de exposición e iluminación",
       },
       {
-        en: "Window pulls with natural outside views",
-        es: "Recuperación de vistas en ventanas con exteriores naturales",
+        en: "White balance adjustments",
+        es: "Ajuste de balance de blancos",
       },
       {
-        en: "Sky replacement and lawn enhancement",
-        es: "Cambio de cielo y mejora de césped",
+        en: "Window and interior light enhancement",
+        es: "Mejora de ventanas y luces interiores",
       },
       {
-        en: "Vertical and lens-distortion correction",
-        es: "Corrección vertical y de distorsión",
+        en: "Basic perspective correction",
+        es: "Corrección básica de perspectiva",
       },
       {
-        en: "Object and clutter removal",
-        es: "Eliminación de objetos y desorden",
+        en: "Removal of stains, cables, and visual distractions",
+        es: "Limpieza de manchas, cables o distracciones",
       },
       {
-        en: "Day-to-dusk conversions",
-        es: "Conversiones de día a atardecer",
+        en: "Balanced color and contrast",
+        es: "Color y contraste equilibrados",
       },
     ],
-    process: [
-      {
-        en: "You upload the raw brackets or exposures",
-        es: "Subes los brackets o las exposiciones en raw",
-      },
-      {
-        en: "A sample room sets the editing standard",
-        es: "Una habitación de muestra fija el estándar",
-      },
-      {
-        en: "The full listing is edited consistently",
-        es: "El anuncio completo se edita con consistencia",
-      },
-      {
-        en: "Delivery within the agreed turnaround, MLS-ready",
-        es: "Entrega a tiempo, lista para MLS",
-      },
-    ],
+    process: defaultProcess,
   },
-  wedding: {
-    title: { en: "Wedding & Events", es: "Bodas y eventos" },
+  ai: {
+    title: {
+      en: "AI-Assisted Image Retouching and Enhancement",
+      es: "Retoque y mejora de imágenes con IA",
+    },
+    shortTitle: { en: "AI Enhancement", es: "Mejora con IA" },
     description: {
-      en: "Consistent, emotive editing for your big day.",
-      es: "Edición emotiva y consistente para tu gran día.",
+      en: "AI tools combined with manual retouching and careful visual control.",
+      es: "Herramientas de IA combinadas con retoque manual y control visual.",
     },
     details: {
-      en: "Full-gallery editing for weddings and special events. Skin tones stay natural, colors stay true to the venue, and the whole gallery keeps one cohesive, timeless look — delivered on time for your clients.",
-      es: "Edición de galería completa para bodas y eventos. Tonos naturales, color fiel al lugar y un estilo cohesivo — entregado a tiempo.",
+      en: "Artificial intelligence is used as part of the editing process, not as an automatic final result. It helps reconstruct areas, resolve complex details, extend images, or improve quality, while manual retouching corrects edges, lighting, texture, and color to maintain realism and visual consistency.",
+      es: "La inteligencia artificial se utiliza como parte del proceso, no como resultado final automático. Permite reconstruir áreas, resolver detalles complejos, ampliar imágenes o mejorar calidad, mientras el retoque manual corrige bordes, iluminación, textura y color para conservar realismo y coherencia.",
     },
     includes: [
       {
-        en: "Color and exposure correction for the full gallery",
-        es: "Color y exposición en toda la galería",
+        en: "Visual quality enhancement",
+        es: "Mejora de calidad visual",
       },
       {
-        en: "Consistent style across ceremonies and receptions",
-        es: "Estilo consistente en ceremonia y recepción",
+        en: "Correction of complex errors or details",
+        es: "Corrección de errores o detalles complejos",
       },
       {
-        en: "Skin-tone refinement for key portraits",
-        es: "Ajuste de piel en retratos clave",
+        en: "Reconstruction or extension of image areas",
+        es: "Reconstrucción o extensión de áreas",
       },
       {
-        en: "Distraction removal in hero shots",
-        es: "Eliminación de distracciones en las fotos principales",
+        en: "Removal of unwanted elements",
+        es: "Limpieza de elementos no deseados",
       },
       {
-        en: "Black-and-white versions of selected images",
-        es: "Versiones en blanco y negro de imágenes seleccionadas",
+        en: "Manual adjustment of edges, lighting, and color",
+        es: "Ajuste manual de bordes, luz y color",
       },
       {
-        en: "Culling support on request",
-        es: "Apoyo en la selección de fotos a pedido",
+        en: "Final review for realism and consistency",
+        es: "Revisión final de realismo y coherencia",
       },
     ],
-    process: [
+    process: defaultProcess,
+  },
+  aiScenes: {
+    title: {
+      en: "AI Models and Lifestyle Scenes",
+      es: "Modelos IA y escenas lifestyle",
+    },
+    shortTitle: {
+      en: "AI Models & Scenes",
+      es: "Modelos IA y escenas",
+    },
+    description: {
+      en: "Products and concepts integrated into custom scenes with greater visual flexibility.",
+      es: "Productos y conceptos integrados en escenas visuales creadas con mayor libertad.",
+    },
+    details: {
+      en: "AI and manual compositing are used to create models, backgrounds, and environments that present products within a more engaging context. Scale, perspective, lighting, shadows, and color are carefully adjusted so every element feels naturally integrated into the same scene.",
+      es: "Mediante IA y composición manual se desarrollan modelos, fondos y ambientes que permiten presentar un producto dentro de un contexto más atractivo. La integración se ajusta cuidadosamente en escala, perspectiva, iluminación, sombras y color para que todos los elementos pertenezcan a la misma escena.",
+    },
+    includes: [
       {
-        en: "You share the gallery and your style references",
-        es: "Compartes la galería y tus referencias",
+        en: "AI-generated models or environments",
+        es: "Generación de modelos o ambientes con IA",
       },
       {
-        en: "A sample set locks in the look you want",
-        es: "Una serie de muestra fija el estilo deseado",
+        en: "Creation of lifestyle scenes",
+        es: "Creación de escenas lifestyle",
       },
       {
-        en: "The complete gallery is edited consistently",
-        es: "La galería completa se edita con consistencia",
+        en: "Product integration within the scene",
+        es: "Integración de productos en la escena",
       },
       {
-        en: "On-time delivery, organized and export-ready",
-        es: "Entrega a tiempo, ordenada y lista para exportación",
+        en: "Perspective, scale, and proportion adjustments",
+        es: "Ajuste de perspectiva, escala y proporción",
+      },
+      {
+        en: "Lighting and color correction",
+        es: "Corrección de luz y color",
+      },
+      {
+        en: "Manual finishing for greater realism",
+        es: "Acabado manual para mayor realismo",
       },
     ],
+    process: defaultProcess,
+  },
+  backgrounds: {
+    title: {
+      en: "Background Removal and Replacement",
+      es: "Cambio y limpieza de fondos",
+    },
+    shortTitle: { en: "Backgrounds", es: "Fondos" },
+    description: {
+      en: "Precise cutouts and backgrounds adapted to the final use of each image.",
+      es: "Recortes precisos y fondos mejor integrados según el uso de la imagen.",
+    },
+    details: {
+      en: "Backgrounds are removed, cleaned, or replaced with careful attention to edges, hair, transparent areas, shadows, and depth. The final integration maintains a natural appearance, avoiding harsh cutouts, halos, or lighting differences between the subject and the new environment.",
+      es: "Se elimina, limpia o reemplaza el fondo trabajando cuidadosamente bordes, cabello, transparencias, sombras y profundidad. La integración final conserva una apariencia natural, evitando recortes rígidos, halos o diferencias de iluminación entre el sujeto y el nuevo entorno.",
+    },
+    includes: [
+      {
+        en: "Background removal or replacement",
+        es: "Eliminación o reemplazo de fondo",
+      },
+      {
+        en: "White, transparent, or custom backgrounds",
+        es: "Fondo blanco, transparente o personalizado",
+      },
+      {
+        en: "Removal of visual distractions",
+        es: "Limpieza de distracciones visuales",
+      },
+      {
+        en: "Fine edge and cutout correction",
+        es: "Corrección de bordes y recortes finos",
+      },
+      {
+        en: "Shadow and lighting integration",
+        es: "Integración de sombras y luz",
+      },
+      {
+        en: "Final color and depth adjustments",
+        es: "Ajuste final de color y profundidad",
+      },
+    ],
+    process: defaultProcess,
+  },
+  batch: {
+    title: {
+      en: "Batch Editing and Visual Consistency",
+      es: "Edición por lotes y consistencia visual",
+    },
+    shortTitle: { en: "Batch Editing", es: "Edición por lotes" },
+    description: {
+      en: "Large image sets maintained under one consistent visual direction.",
+      es: "Grandes volúmenes de imágenes con una línea visual uniforme.",
+    },
+    details: {
+      en: "When a project includes a high volume of photographs, editing each image individually is not enough. A shared foundation of color, lighting, contrast, and finish is established to maintain continuity throughout the entire set, while keeping the workflow and delivery organized.",
+      es: "Cuando una serie contiene muchas fotografías, no basta con editar cada archivo por separado. Se establece una base común de color, iluminación, contraste y acabado para mantener continuidad entre todas las imágenes, además de organizar el proceso y las entregas de forma clara.",
+    },
+    includes: [
+      {
+        en: "High-volume lighting and color correction",
+        es: "Corrección de color y luz en volumen",
+      },
+      {
+        en: "Application of a consistent visual style",
+        es: "Aplicación de un estilo visual uniforme",
+      },
+      {
+        en: "Basic or advanced retouching depending on the project",
+        es: "Retoque básico o avanzado según el lote",
+      },
+      {
+        en: "Organized file management and delivery",
+        es: "Organización de archivos y entregas",
+      },
+      {
+        en: "Consistency review across all images",
+        es: "Revisión de consistencia entre imágenes",
+      },
+      {
+        en: "Export according to the final use",
+        es: "Exportación según el uso final",
+      },
+    ],
+    process: defaultProcess,
+  },
+  jewelry: {
+    title: {
+      en: "Jewelry, Accessories, and Clothing Retouching",
+      es: "Retoque de joyería, accesorios y ropa",
+    },
+    shortTitle: {
+      en: "Jewelry & Apparel",
+      es: "Joyería y ropa",
+    },
+    description: {
+      en: "Materials, highlights, and fine details refined with precision.",
+      es: "Materiales, brillos y detalles trabajados con precisión y limpieza.",
+    },
+    details: {
+      en: "Metals, stones, fabrics, stitching, and other surfaces require specific treatment to preserve their real appearance. Imperfections, reflections, textures, color, and small details are corrected to create a cleaner and more defined image without losing the natural characteristics of each material.",
+      es: "Metales, piedras, telas, costuras y superficies requieren un tratamiento específico para conservar su apariencia real. Se corrigen imperfecciones, reflejos, textura, color y pequeños detalles, logrando una imagen más definida sin perder las características propias de cada material.",
+    },
+    includes: [
+      {
+        en: "Removal of dust, stains, and unwanted reflections",
+        es: "Limpieza de polvo, manchas y reflejos no deseados",
+      },
+      {
+        en: "Enhancement of highlights, texture, and definition",
+        es: "Mejora de brillos, textura y definición",
+      },
+      {
+        en: "Fabric retouching, wrinkle removal, and garment shaping",
+        es: "Retoque de telas, arrugas y caída de prendas",
+      },
+      {
+        en: "Material-accurate color correction",
+        es: "Corrección de color del material",
+      },
+      {
+        en: "Shadow and depth adjustments",
+        es: "Ajuste de sombras y profundidad",
+      },
+      {
+        en: "Edge cleanup and fine-detail correction",
+        es: "Limpieza de bordes y detalles finos",
+      },
+    ],
+    process: defaultProcess,
+  },
+  color: {
+    title: {
+      en: "Color Variations and Creative Editing",
+      es: "Variaciones de color y edición creativa",
+    },
+    shortTitle: {
+      en: "Color Variations",
+      es: "Variaciones de color",
+    },
+    description: {
+      en: "New color versions created while preserving material, volume, and realism.",
+      es: "Nuevas versiones de color conservando material, volumen y realismo.",
+    },
+    details: {
+      en: "The color of clothing, accessories, or products can be changed without affecting the original texture. Each variation is adjusted according to shadows, reflections, folds, transparent areas, and specific color references, creating believable and visually consistent versions.",
+      es: "El color de ropa, accesorios o productos puede modificarse sin alterar su textura original. Cada variación se ajusta teniendo en cuenta sombras, reflejos, pliegues, transparencias y referencias específicas, para conseguir versiones creíbles y consistentes entre sí.",
+    },
+    includes: [
+      {
+        en: "Color changes for clothing, products, or accessories",
+        es: "Cambio de color en ropa, productos o accesorios",
+      },
+      {
+        en: "Preservation of texture and volume",
+        es: "Conservación de textura y volumen",
+      },
+      {
+        en: "Shadow, highlight, and reflection adjustments",
+        es: "Ajuste de sombras, brillos y reflejos",
+      },
+      {
+        en: "Variations based on color references",
+        es: "Variaciones según referencias de color",
+      },
+      {
+        en: "Edge correction and cleanup of color contamination",
+        es: "Corrección de bordes y zonas contaminadas",
+      },
+      {
+        en: "Versions prepared for catalogs, online stores, or presentations",
+        es: "Versiones listas para catálogo, tienda o presentación",
+      },
+    ],
+    process: defaultProcess,
   },
 };

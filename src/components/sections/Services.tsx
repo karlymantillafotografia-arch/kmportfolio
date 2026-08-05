@@ -34,7 +34,7 @@ export function Services({
 
         {desktopCarousel ? (
           <div className="hidden md:block">
-            <CardCarousel slideClassName="flex-[0_0_23%] lg:flex-[0_0_15.5%]">
+            <CardCarousel slideClassName="flex-[0_0_30%] lg:flex-[0_0_22%]">
               {items.map((service) => (
                 <ServiceCard
                   key={service.id}
@@ -45,7 +45,7 @@ export function Services({
             </CardCarousel>
           </div>
         ) : (
-          <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-6">
+          <div className="hidden gap-3 md:grid md:grid-cols-3 lg:grid-cols-4">
             {items.map((service) => (
               <ServiceCard key={service.id} service={service} />
             ))}
